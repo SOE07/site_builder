@@ -36,6 +36,7 @@ const pfad = `/ratgeber/${r.slug}`;
           <ol class="quick">{r.schnellwahl.map((q) => <li set:html={inline(q)} />)}</ol>
         </>}
         {r.abschnitteVor.map((a) => <><h2 set:html={inline(a.titel)} /><Fragment set:html={richtext(a.text)} /></>)}
+        {produkte.length > 0 && <h2 id="produkte" set:html={inline(r.produkteTitel || 'Die Empfehlungen im Detail')} />}
         {produkte.map((p) => {
           const ex = erfahrung(p.slug);
           const widersprueche = p.fakten.filter((f) => f.widerspruch);

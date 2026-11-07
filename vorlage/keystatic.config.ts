@@ -161,6 +161,7 @@ export default config({
         schnellwahlTitel: fields.text({ label: 'Überschrift Schnellauswahl' }),
         schnellwahl: liste('Schnellauswahl', 'Punkt'),
         abschnitteVor: paare('Abschnitte vor den Produkten', 'Überschrift', 'Text'),
+        produkteTitel: fields.text({ label: 'Überschrift über den Produkten (z. B. „Die vier Schläger im Überblick“)' }),
         produkte: fields.array(fields.relationship({ label: 'Produkt', collection: 'produkte' }), {
           label: 'Produkte in diesem Ratgeber (Reihenfolge)',
           itemLabel: (p) => p.value ?? 'Produkt',

@@ -1,13 +1,13 @@
 {
   "name": "Padelstart",
   "metaTitel": "Padelstart – Der richtige Padelschläger für Einsteiger",
-  "metaBeschreibung": "Ehrliche Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, abgeglichene Daten und klare Nachteile.",
+  "metaBeschreibung": "Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, Daten mit Quellenangabe und klare Nachteile.",
   "werbehinweis": "Mit * markierte Links sind Werbelinks. Kaufst du darüber, erhalten wir eine Provision. Der Preis ändert sich für dich nicht.",
   "heroTitel": "Dein erster Padelschläger. In fünf Fragen gefunden.",
   "heroText": "Wir helfen Einsteigern, den passenden Schläger zu kaufen, ohne Profi-Modelle, Fantasie-Noten oder Ranglisten.",
   "heroPunkte": [
     "Empfehlungen nach Spielertyp statt nach Rangliste",
-    "Herstellerdaten mit mehreren Shops abgeglichen, Widersprüche offen benannt",
+    "Jede Produktangabe mit Quelle, Widersprüche offen benannt",
     "Bei jedem Modell: wann du es **nicht** kaufen solltest"
   ],
   "empfehlungenTitel": "Unsere vier Empfehlungen",
@@ -16,7 +16,7 @@
     "Gewicht",
     "Preis"
   ],
-  "tabellenHinweis": "Preise Stand November 2026, recherchiert bei mehreren Händlern. Sie schwanken stark, viele Modelle sind dauerhaft 20–35 % unter der UVP.",
+  "tabellenHinweis": "Preise und Angaben nach der jeweils genannten Quelle (siehe Datenquellen im Ratgeber). Preise schwanken; maßgeblich ist der Preis beim Händler.",
   "ratgeberTitel": "Ratgeber für Einsteiger",
   "geplant": [
     {
@@ -28,5 +28,5 @@
       "text": "Erscheint in Kürze"
     }
   ],
-  "fussText": "© 2026 Padelstart. Unabhängiger Ratgeber für Padel-Einsteiger."
+  "fussText": "© 2026 Padelstart. Ratgeber für Padel-Einsteiger."
 }

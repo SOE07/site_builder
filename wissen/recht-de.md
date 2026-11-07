@@ -39,3 +39,5 @@ Stand: 2026-11-07 · Aus dem Wissensstand der Fabrik zusammengestellt, **nicht**
 
 ## Offene Punkte / Ergänzungen
 <!-- Neue Einträge: `- JJJJ-MM-TT · Thema · Erkenntnis · Quelle` -->
+- 2026-11-07 · Selbstaussagen · Aussagen über die eigene Arbeitsweise („unabhängig“, „wir werten Tests aus“, Aktualisierungsintervalle) müssen stimmen und belegbar sein; im Padelstart-Testlauf mehrfach aus dem Ausgangsmaterial entfernt (§ 5 UWG-Bezug, Prüfung `qualitaet-pruefen`).
+- 2026-11-07 · Gesundheitsbezug · Aussagen wie „armschonend“ oder „nimmt Belastung von Ellbogen“ sind gesundheitsnah: nur mit Quelle und mit Hinweis „keine medizinische Beratung“.

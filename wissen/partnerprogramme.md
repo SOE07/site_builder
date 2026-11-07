@@ -21,3 +21,7 @@ Stand: 2026-11-07 · Konditionen ändern sich laufend und stehen hier **bewusst 
 
 ## Programmeinträge (hier ergänzen)
 <!-- Format: `### Programm · JJJJ-MM-TT` mit Provision (Quelle), Cookie-Dauer, Besonderheiten, Pflichttexte, Link zu den Bedingungen -->
+
+### Hinweise aus dem Padelstart-Testlauf · 2026-11-07
+- Der Amazon-Pflichtsatz („Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.“) gehört nur auf die Seite, wenn tatsächlich am Amazon-Programm teilgenommen wird; ohne Amazon-Links entfernen.
+- Vor dem Livegang je Händler klären: Gibt es ein Partnerprogramm, und erlauben die Bedingungen die `/go/`-Weiterleitung? Ergebnis hier eintragen.

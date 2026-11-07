@@ -27,3 +27,5 @@ Selbst gehostete Schriften, kein Tracking, `lang="de"`, canonical, strukturierte
 
 ## Offene Punkte / Ergänzungen
 <!-- Neue Einträge: `- JJJJ-MM-TT · Thema · Erkenntnis · Quelle` -->
+- 2026-11-07 · Abruf · Die offiziellen Google-Seiten (developers.google.com) waren in der Entwicklungsumgebung nicht erreichbar; die Aussagen in dieser Datei sind noch nicht gegen die Originalquellen geprüft. Beim nächsten Lauf mit Internetzugang abgleichen und Datum eintragen.
+- 2026-11-07 · Eine Händlerquelle je Produkt und keine eigene Erfahrung erhöhen die Gefahr, als dünne Affiliate-Seite zu gelten; Gegenmittel: mehrere Quellen, offene Nachteile, klare Einordnung (siehe Zielkonflikt oben).

@@ -16,6 +16,7 @@
       "text": "Demo-Text.\n\n- Punkt 1\n- Punkt 2"
     }
   ],
+  "produkteTitel": "Die Demo-Produkte im Überblick",
   "produkte": [
     "demo-a",
     "demo-b"

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import fs from 'node:fs';
+import sitemap from '@astrojs/sitemap';
 
 const cfg = JSON.parse(fs.readFileSync(new URL('./seite.config.json', import.meta.url), 'utf8'));
 const ziel = process.env.DEPLOY_TARGET; // "netlify" | "vercel" | leer
@@ -19,7 +20,7 @@ if (fs.existsSync(dir)) {
   }
 }
 
-const integrations = [];
+const integrations = [sitemap()];
 if (mitKeystatic) {
   const react = (await import('@astrojs/react')).default;
   const keystatic = (await import('@keystatic/astro')).default;
