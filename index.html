@@ -3,9 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello World</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Affiliate-Fabrik: So geht's</title>
+  <style>
+    :root { --bg:#f6f8fa; --surface:#fff; --ink:#16202c; --muted:#4d5b6a; --line:#d8e0e8; --accent:#1d4f91; --code:#eef2f6; color-scheme: light dark; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#0f1720; --surface:#16212d; --ink:#e8eef5; --muted:#a9b6c4; --line:#2a3a4b; --accent:#8db8f2; --code:#1c2a38; } }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:1.0625rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+    main { max-width:760px; margin:0 auto; padding:40px 20px 72px; }
+    h1 { font-size:clamp(2rem,6vw,2.8rem); line-height:1.1; margin:0 0 .3em; }
+    h2 { font-size:1.45rem; margin:2em 0 .5em; line-height:1.2; }
+    p { margin:0 0 1em; }
+    .lede { color:var(--muted); font-size:1.15rem; }
+    a { color:var(--accent); }
+    a:focus-visible, summary:focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+    code, pre { background:var(--code); border-radius:6px; font:.92em ui-monospace,SFMono-Regular,Menlo,monospace; }
+    code { padding:.1em .35em; }
+    pre { padding:12px 14px; overflow-x:auto; margin:0 0 1em; }
+    pre code { padding:0; background:none; }
+    ol, ul { padding-left:1.3em; margin:0 0 1em; }
+    li { margin-bottom:.5em; }
+    table { border-collapse:collapse; width:100%; margin:0 0 1em; background:var(--surface); border:1px solid var(--line); }
+    th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.92rem; }
+    .scroll { overflow-x:auto; }
+    .note { background:var(--surface); border-left:4px solid var(--accent); padding:12px 16px 2px; border-radius:0 8px 8px 0; margin:0 0 1em; }
+    footer { color:var(--muted); font-size:.92rem; margin-top:3em; border-top:1px solid var(--line); padding-top:16px; }
+  </style>
 </head>
 <body>
-  <h1>Hello World</h1>
+<main>
+  <h1>Affiliate-Fabrik</h1>
+  <p class="lede">So baust du mit Claude Code deutschsprachige Affiliate-Nischenseiten: von der Themenprüfung bis zum Deployment.</p>
+
+  <h2>1. Einmal einrichten (pro MacBook)</h2>
+  <pre><code>git clone https://github.com/SOE07/site_builder.git
+cd site_builder
+nvm install &amp;&amp; nvm use</code></pre>
+  <p><code>nvm</code> liest <code>.nvmrc</code> (Node 26 LTS; Astro braucht mindestens 22.23.4). Danach <code>claude</code> im Repo-Ordner starten und die Projekt-Einstellungen bestätigen. Skills, Agents und Hooks liegen im Repo unter <code>.claude/</code>, auf dem Rechner ist nichts weiter nötig.</p>
+
+  <h2>2. Neue Seite bauen</h2>
+  <p>In Claude Code, in dieser Reihenfolge. Jede Aufgabe läuft auf einem eigenen Branch und endet mit einem Pull Request gegen <code>main</code>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Befehl</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><td><code>/nische-pruefen &lt;Thema&gt;</code></td><td>Bericht in <code>recherche/</code> mit Punktzahl und Empfehlung (Go, Bedingt, No-Go)</td></tr>
+      <tr><td><code>/seite-anlegen &lt;name&gt; "&lt;Anzeigename&gt;"</code></td><td><code>seiten/&lt;name&gt;/</code> mit eigenem Theme und Pflichtseiten</td></tr>
+      <tr><td><code>/keyword-plan &lt;name&gt;</code></td><td>Keyword- und Artikelplan, kaufnahe Suchanfragen zuerst</td></tr>
+      <tr><td><code>/produkte-recherchieren &lt;name&gt; &lt;Produkte&gt;</code></td><td>Produktdaten, jede Angabe mit Quell-URL und Prüfdatum</td></tr>
+      <tr><td><code>/artikel-schreiben &lt;name&gt; &lt;Artikel&gt;</code></td><td>Ratgeber aus den vorhandenen Daten</td></tr>
+      <tr><td><code>/qualitaet-pruefen &lt;name&gt;</code></td><td>Skripte plus Faktenprüfer, Compliance und SEO-Prüfer, Bericht in <code>planung/</code></td></tr>
+      <tr><td><code>/preise-aktualisieren &lt;name&gt;</code></td><td>Preise und tote Links prüfen, Änderungen als Pull Request</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">
+    <p>Die Regeln stehen in <code>CLAUDE.md</code>: keine Behauptung eigener Tests oder Erfahrung, keine Sterne oder Noten, jede Produktangabe mit Quelle und Prüfdatum, Werbekennzeichnung an jedem Affiliate-Link. Eigene Erfahrung darf nur auf die Seite, wenn du sie in <code>seiten/&lt;name&gt;/erfahrung/&lt;produkt&gt;.md</code> einträgst.</p>
+  </div>
+
+  <h2>3. Seite lokal starten</h2>
+  <pre><code>cd seiten/&lt;name&gt;
+npm install
+npm run dev</code></pre>
+  <p>Die Seite läuft dann unter <code>http://localhost:4321</code>, die Redaktion unter <code>/keystatic</code> (lokaler Modus). Vor jedem Pull Request <code>npm run check</code> ausführen: Es prüft Daten, verbotene Phrasen, Build, Werbekennzeichnung und interne Links. <code>npm run check:release</code> ist strenger und schlägt bei offenen Platzhaltern und fehlenden Prüfdaten fehl.</p>
+
+  <h2>4. Auf Netlify oder Vercel deployen</h2>
+  <p>Jede Seite ist ein eigenes Projekt. Neues Projekt aus diesem GitHub-Repo anlegen:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Einstellung</th><th>Wert</th></tr></thead>
+    <tbody>
+      <tr><td>Base Directory / Root Directory</td><td><code>seiten/&lt;name&gt;</code></td></tr>
+      <tr><td>Build Command</td><td><code>npm run build</code></td></tr>
+      <tr><td>Output</td><td><code>dist</code></td></tr>
+      <tr><td>Node-Version</td><td>26 (mindestens 22.23.4)</td></tr>
+    </tbody>
+  </table></div>
+  <p>Ohne Online-Redaktion braucht es keine Umgebungsvariablen. Für Keystatic im GitHub-Modus zusätzlich <code>DEPLOY_TARGET</code> (<code>netlify</code> oder <code>vercel</code>), <code>KEYSTATIC_STORAGE=github</code> und die Zugangsdaten einer eigenen GitHub-App je Seite setzen. Die Namen stehen in <code>.env.example</code>, Werte gehören nie ins Repo.</p>
+  <p><strong>Vor dem Livegang:</strong> <code>npm run check:release</code> muss grün sein, Impressum und Datenschutz müssen ausgefüllt und die Partnerlinks eingetragen sein.</p>
+
+  <h2>Mehr dazu</h2>
+  <ul>
+    <li><a href="https://github.com/SOE07/site_builder/blob/main/README.md">README</a> mit allen Details</li>
+    <li><a href="https://github.com/SOE07/site_builder/blob/main/CLAUDE.md">CLAUDE.md</a> mit den verbindlichen Regeln</li>
+    <li><a href="https://github.com/SOE07/site_builder/tree/main/wissen">wissen/</a>: Recht, Google-Richtlinien, Partnerprogramme</li>
+  </ul>
+
+  <footer>Interne Anleitung für die Affiliate-Fabrik. Diese Seite ist nicht für Suchmaschinen gedacht.</footer>
+</main>
 </body>
 </html>
