@@ -1,0 +1,29 @@
+{
+  "aktiv": true,
+  "titel": "Demo-Finder",
+  "fragen": [
+    {
+      "frage": "Welches Demo?",
+      "antworten": [
+        {
+          "text": "A",
+          "punkte": [
+            {
+              "produkt": "demo-a",
+              "punkte": 2
+            }
+          ]
+        },
+        {
+          "text": "B",
+          "punkte": [
+            {
+              "produkt": "demo-b",
+              "punkte": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

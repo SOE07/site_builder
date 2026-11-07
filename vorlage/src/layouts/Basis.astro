@@ -1,0 +1,56 @@
+---
+import '../theme/theme.css';
+import theme from '../theme/theme.json';
+import { ladeSeite, ladeRecht, url, seiteConfig } from '../lib/inhalt';
+import { inline, nurText } from '../lib/text';
+import { json, webseite } from '../lib/schema';
+
+interface Props { titel: string; beschreibung: string; pfad: string; schema?: object[]; noindex?: boolean; }
+const { titel, beschreibung, pfad, schema = [], noindex = false } = Astro.props;
+const seite = await ladeSeite();
+const kanonisch = url(pfad);
+const nav = [
+  { href: '/', text: 'Start', aktiv: pfad === '/' },
+  { href: '/#ratgeber', text: 'Ratgeber', aktiv: pfad.startsWith('/ratgeber') },
+  { href: '/ueber-uns', text: 'Über uns', aktiv: pfad === '/ueber-uns' },
+];
+---
+<!doctype html>
+<html lang="de" data-header={theme.header} data-hero={theme.hero} data-table={theme.table} data-radius={theme.radius}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{nurText(titel)}</title>
+    <meta name="description" content={nurText(beschreibung)} />
+    <link rel="canonical" href={kanonisch} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:title" content={nurText(titel)} />
+    <meta property="og:description" content={nurText(beschreibung)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={kanonisch} />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="theme-color" content={theme.themeColor} />
+    {[webseite(seite.name), ...schema].map((s) => <script type="application/ld+json" set:html={json(s)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+    <div class="werbehinweis-oben" data-werbehinweis-oben>
+      <div class="wrap"><span set:html={inline(seite.werbehinweis)} /> <a href="/werbehinweis">Mehr dazu</a></div>
+    </div>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">{seite.name}</a>
+        <nav class="main" aria-label="Hauptnavigation">
+          {nav.map((n) => <a href={n.href} aria-current={n.aktiv ? 'page' : undefined}>{n.text}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="inhalt"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div set:html={inline(seite.fussText)} />
+        <div class="footer-links"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/werbehinweis">Werbehinweis</a></div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "Demo B",
+  "reihenfolge": 2,
+  "typ": "Demo-Typ",
+  "geeignetFuer": "Demo-Zielgruppe",
+  "affiliateUrl": "https://example.com/demo-2",
+  "partnerprogramm": "Demo",
+  "symbolSvg": "",
+  "fakten": [
+    {
+      "feld": "Preis",
+      "wert": "20 €",
+      "quelle_url": "https://example.com/demo",
+      "geprueft_am": "2026-01-01",
+      "widerspruch": ""
+    }
+  ],
+  "untertitel": "Demo-Untertitel",
+  "beschreibung": "Demo-Text. Diese Datei gehört zur Vorlage und wird nicht in neue Seiten kopiert.",
+  "hinweis": "",
+  "pro": [
+    "Demo-Vorteil"
+  ],
+  "contra": [
+    "Demo-Nachteil"
+  ],
+  "nichtKaufenWenn": "Demo-Bedingung.",
+  "finderBegruendung": "Demo-Begründung."
+}

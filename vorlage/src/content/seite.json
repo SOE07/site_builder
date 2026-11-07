@@ -1,0 +1,21 @@
+{
+  "name": "Vorlage",
+  "metaTitel": "[Browser-Titel] | Vorlage",
+  "metaBeschreibung": "[Meta-Beschreibung, 120–155 Zeichen, mit Haupt-Keyword]",
+  "werbehinweis": "Mit * markierte Links sind Werbelinks. Kaufst du darüber, erhalten wir eine Provision. Der Preis ändert sich für dich nicht.",
+  "heroTitel": "[Überschrift der Startseite]",
+  "heroText": "[Einleitung in ein bis zwei Sätzen]",
+  "heroPunkte": [
+    "[Stichpunkt 1]",
+    "[Stichpunkt 2]"
+  ],
+  "empfehlungenTitel": "[Überschrift Empfehlungen]",
+  "empfehlungenText": "[Text zu den Empfehlungen]",
+  "tabellenSpalten": [
+    "Preis"
+  ],
+  "tabellenHinweis": "Preise und Angaben nach den im Ratgeber genannten Quellen. Sie ändern sich laufend; maßgeblich ist der Preis beim Händler.",
+  "ratgeberTitel": "Ratgeber",
+  "geplant": [],
+  "fussText": "© 2026 Vorlage. [Kurzer Zusatz zur Seite]"
+}

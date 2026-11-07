@@ -1,0 +1,40 @@
+---
+import AffiliateLink from './AffiliateLink.astro';
+import { fakt, type Produkt } from '../lib/inhalt';
+import { datumDe, inline } from '../lib/text';
+interface Props { produkte: Produkt[]; spalten: readonly string[]; }
+const { produkte, spalten } = Astro.props;
+---
+<div class="table-scroll">
+  <table class="picks">
+    <thead>
+      <tr>
+        <th scope="col"><span class="sr-only">Symbol</span></th>
+        <th scope="col">Produkt</th>
+        <th scope="col">Am besten für</th>
+        {spalten.map((s) => <th scope="col">{s}</th>)}
+        <th scope="col"><span class="werbe-kopf">Zum Angebot (Werbelink)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {produkte.map((p) => (
+        <tr>
+          <td class="symbol">{p.symbolSvg ? <span set:html={p.symbolSvg} /> : null}</td>
+          <td class="name">{p.name}<br /><span class="klein">{p.typ}</span></td>
+          <td set:html={inline(p.geeignetFuer)} />
+          {spalten.map((s) => {
+            const f = fakt(p, s);
+            return (
+              <td>
+                {f ? f.wert : '–'}
+                {f?.geprueft_am && <><br /><span class="klein">Stand {datumDe(f.geprueft_am)}</span></>}
+                {f?.widerspruch && <><br /><span class="klein warn">Quellen widersprechen sich</span></>}
+              </td>
+            );
+          })}
+          <td><AffiliateLink slug={p.slug} label="Zum Angebot" klasse="textlink" /></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

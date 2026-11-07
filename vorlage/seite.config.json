@@ -1,0 +1,9 @@
+{
+  "name": "vorlage",
+  "anzeigename": "Vorlage",
+  "domain": "https://example.com",
+  "github": { "owner": "SOE07", "repo": "site_builder" },
+  "pfad": "seiten/vorlage",
+  "anrede": "du",
+  "veroeffentlicht": false
+}

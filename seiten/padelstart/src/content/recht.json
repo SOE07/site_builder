@@ -1,0 +1,10 @@
+{
+  "impressumName": "[Vor- und Nachname]",
+  "impressumAnschrift": "[Ladungsfähige Anschrift, z. B. über Impressumsdienst]",
+  "impressumOrt": "[PLZ Ort]",
+  "impressumEmail": "[E-Mail-Adresse]",
+  "impressumKontakt2": "[Telefon oder Kontaktformular]",
+  "impressumVerantwortlich": "[Vor- und Nachname, Anschrift wie oben]",
+  "werbehinweis": "Mit * gekennzeichnete Links sind Werbe- bzw. Affiliate-Links. Klickst du auf einen solchen Link und kaufst etwas, erhalten wir eine Provision vom Händler. Für dich ändert sich der Preis nicht.\n\nWir nehmen am Partnerprogramm von [Händler/Netzwerk, z. B. Awin] teil. Als Amazon-Partner verdienen wir an qualifizierten Verkäufen.",
+  "datenschutz": "[Vor Veröffentlichung mit einem Datenschutz-Generator erstellen. Aufzunehmen sind mindestens Hosting, Affiliate-Tracking (Awin, Amazon), Consent-Tool, eingebundene Schriften und gegebenenfalls Analytics.]"
+}

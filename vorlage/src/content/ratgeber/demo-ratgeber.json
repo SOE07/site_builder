@@ -1,0 +1,32 @@
+{
+  "titel": "Demo-Ratgeber",
+  "metaTitel": "Demo-Ratgeber | Vorlage",
+  "metaBeschreibung": "Demo-Ratgeber der Vorlage, damit der Build geprüft werden kann.",
+  "listenText": "Nur zum Testen der Vorlage",
+  "autorZeile": "Von Demo-Autor.",
+  "aktualisiert": "2026-01-01",
+  "kurzeAntwort": "**Die kurze Antwort:** Demo.",
+  "schnellwahlTitel": "Schnellauswahl",
+  "schnellwahl": [
+    "**Demo?** Nimm Demo A."
+  ],
+  "abschnitteVor": [
+    {
+      "titel": "Grundlagen",
+      "text": "Demo-Text.\n\n- Punkt 1\n- Punkt 2"
+    }
+  ],
+  "produkte": [
+    "demo-a",
+    "demo-b"
+  ],
+  "abschnitteNach": [],
+  "faq": [
+    {
+      "q": "Demo-Frage?",
+      "a": "Demo-Antwort."
+    }
+  ],
+  "autorName": "Demo-Autor",
+  "autorBio": "Demo-Bio."
+}

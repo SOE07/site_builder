@@ -1,0 +1,9 @@
+---
+import Basis from '../layouts/Basis.astro';
+import { ladeRecht } from '../lib/inhalt';
+import { richtext } from '../lib/text';
+const r = await ladeRecht();
+---
+<Basis titel="Werbehinweis" beschreibung="Hinweis zu Werbe- und Affiliate-Links auf dieser Seite und wie wir damit Geld verdienen." pfad="/werbehinweis">
+  <article class="page"><div class="wrap prose"><h1>Werbehinweis</h1><Fragment set:html={richtext(r.werbehinweis)} /></div></article>
+</Basis>

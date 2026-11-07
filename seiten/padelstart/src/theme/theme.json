@@ -1,0 +1,15 @@
+{
+  "header": "bar",
+  "hero": "split",
+  "table": "lines",
+  "radius": "soft",
+  "themeColor": "#1D4F91",
+  "farben": {
+    "hue": 213,
+    "accentHue": 65
+  },
+  "schrift": {
+    "display": "Barlow Condensed",
+    "body": "Barlow"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Padelstart",
+  "metaTitel": "Padelstart – Der richtige Padelschläger für Einsteiger",
+  "metaBeschreibung": "Ehrliche Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, abgeglichene Daten und klare Nachteile.",
+  "werbehinweis": "Mit * markierte Links sind Werbelinks. Kaufst du darüber, erhalten wir eine Provision. Der Preis ändert sich für dich nicht.",
+  "heroTitel": "Dein erster Padelschläger. In fünf Fragen gefunden.",
+  "heroText": "Wir helfen Einsteigern, den passenden Schläger zu kaufen, ohne Profi-Modelle, Fantasie-Noten oder Ranglisten.",
+  "heroPunkte": [
+    "Empfehlungen nach Spielertyp statt nach Rangliste",
+    "Herstellerdaten mit mehreren Shops abgeglichen, Widersprüche offen benannt",
+    "Bei jedem Modell: wann du es **nicht** kaufen solltest"
+  ],
+  "empfehlungenTitel": "Unsere vier Empfehlungen",
+  "empfehlungenText": "Alle vier Schläger kosten unter 130 € und eignen sich für die ersten ein bis zwei Jahre. Welcher zu dir passt, hängt vor allem von deiner Vorerfahrung und deinem Arm ab.",
+  "tabellenSpalten": [
+    "Gewicht",
+    "Preis"
+  ],
+  "tabellenHinweis": "Preise Stand November 2026, recherchiert bei mehreren Händlern. Sie schwanken stark, viele Modelle sind dauerhaft 20–35 % unter der UVP.",
+  "ratgeberTitel": "Ratgeber für Einsteiger",
+  "geplant": [
+    {
+      "titel": "Padelschuhe für Einsteiger",
+      "text": "Erscheint in Kürze"
+    },
+    {
+      "titel": "Padel-Starterset",
+      "text": "Erscheint in Kürze"
+    }
+  ],
+  "fussText": "© 2026 Padelstart. Unabhängiger Ratgeber für Padel-Einsteiger."
+}

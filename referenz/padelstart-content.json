@@ -1,0 +1,210 @@
+{
+  "site": {
+    "name": "Padelstart",
+    "metaTitle": "Padelstart – Der richtige Padelschläger für Einsteiger",
+    "metaDescription": "Ehrliche Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, abgeglichene Daten und klare Nachteile.",
+    "disclosure": "Mit * markierte Links sind Werbelinks. Kaufst du darüber, erhalten wir eine Provision. Der Preis ändert sich für dich nicht.",
+    "heroTitle": "Dein erster Padelschläger. In fünf Fragen gefunden.",
+    "heroLede": "Wir helfen Einsteigern, den passenden Schläger zu kaufen, ohne Profi-Modelle, Fantasie-Noten oder Testsieger-Listen.",
+    "heroFacts": [
+      "Empfehlungen nach Spielertyp statt nach Rangliste",
+      "Herstellerdaten mit mehreren Shops abgeglichen, Widersprüche offen benannt",
+      "Bei jedem Modell: wann du es **nicht** kaufen solltest"
+    ],
+    "picksTitle": "Unsere vier Empfehlungen",
+    "picksIntro": "Alle vier Schläger kosten unter 130 € und eignen sich für die ersten ein bis zwei Jahre. Welcher zu dir passt, hängt vor allem von deiner Vorerfahrung und deinem Arm ab.",
+    "priceNote": "Preise Stand November 2026, recherchiert bei mehreren Händlern. Sie schwanken stark, viele Modelle sind dauerhaft 20–35 % unter der UVP.",
+    "footerText": "© 2026 Padelstart. Unabhängiger Ratgeber für Padel-Einsteiger."
+  },
+  "rackets": [
+    {
+      "id": "head",
+      "name": "HEAD Evo Speed 2025",
+      "shape": "tear",
+      "shapeLabel": "Tropfen (Oversize)",
+      "best": "Die meisten Einsteiger",
+      "weight": "350 g ±10 g",
+      "price": "65–90 €",
+      "url": "https://padelshop.com/de/products/head-evo-speed-2025",
+      "title": "Der beste Allrounder für Einsteiger",
+      "text": "Der Evo Speed ist der Schläger, den wir den meisten Anfängern zuerst empfehlen. HEAD gibt 350 g (±10 g) und eine Balance von 270 mm an, die Oberfläche besteht aus Glasfaser mit Innegra-Verstärkung. Die große Tropfenform liefert etwas Power, ohne kopflastig zu werden.",
+      "extra": "**Gut zu wissen:** Shops beschreiben die Form völlig unterschiedlich, von „rund“ über „Hybrid“ bis „Tropfen“. HEAD selbst nennt sie „Teardrop Oversize“. Verlass dich auf die Herstellerangabe.",
+      "pro": [
+        "Sehr wendig",
+        "Großer Sweetspot",
+        "Armschonend",
+        "Oft unter 70 € zu haben"
+      ],
+      "con": [
+        "Wenig Durchschlag beim Smash",
+        "Ambitionierte Spieler wachsen nach 6–12 Monaten heraus"
+      ],
+      "skip": "du schon regelmäßig Tennis spielst und hart schlägst.",
+      "reason": "Du willst einfach gut ins Spiel kommen. Der Evo Speed ist leicht, verzeiht Fehler und kostet wenig."
+    },
+    {
+      "id": "wilson",
+      "name": "Wilson Optix V2 Lite",
+      "shape": "round",
+      "shapeLabel": "Rund",
+      "best": "Kontrolle und ein geschonter Arm",
+      "weight": "355 g",
+      "price": "75–100 €",
+      "url": "https://www.wilson.com/de-de/product/optix-v2-lite-wr19070",
+      "title": "Die beste Wahl für Kontrolle und Komfort",
+      "text": "Der Optix V2 Lite ist ein klassischer Kontrollschläger: runde Form, Glasfaser-Oberfläche, weicher Schaumstoffkern. Wilson gibt 355 g unbespannt und eine Balance von 26 cm an, also eher grifflastig. Das macht ihn besonders armschonend.",
+      "extra": "",
+      "pro": [
+        "Sehr fehlerverzeihend",
+        "Ruhiges Spielgefühl",
+        "Starke Marke"
+      ],
+      "con": [
+        "Wenig Power",
+        "Du zahlst etwas für den Namen Wilson"
+      ],
+      "skip": "du gern am Netz angreifst und Punkte mit dem Smash beenden willst.",
+      "reason": "Dein Arm hat Vorrang. Die runde Form und der grifflastige Aufbau nehmen Belastung von Ellbogen und Handgelenk."
+    },
+    {
+      "id": "dunlop",
+      "name": "Dunlop Nanomax Lite 2026",
+      "shape": "hybrid",
+      "shapeLabel": "Hybrid/Tropfen",
+      "best": "Leichte Spieler und Spin-Fans",
+      "weight": "350 g",
+      "price": "65–75 €",
+      "url": "https://www.padelreference.com/de/padelschlager/p/dunlop-nanomax-lite-2026",
+      "title": "Der Leichte mit Spin-Bonus",
+      "text": "Der Nanomax Lite bringt laut Dunlop 350 g auf die Waage und hat eine sandgestrahlte, raue Oberfläche, die dem Ball mehr Spin gibt. Der Rahmen besteht aus Graphit, der Kern aus Soft EVA. Er ist wendig und eignet sich gut für Spieler, die am Netz schnell reagieren wollen.",
+      "extra": "",
+      "pro": [
+        "Leicht",
+        "Raue Oberfläche für Slice und Spin",
+        "Günstig"
+      ],
+      "con": [
+        "Keine Schutzhülle dabei",
+        "Bei harten Schlägen etwas unruhiger"
+      ],
+      "skip": "du einen möglichst stabilen, schweren Schläger suchst.",
+      "reason": "Du willst einen leichten, wendigen Schläger. Der Nanomax Lite ist einer der leichtesten Markenschläger und bringt mit seiner rauen Oberfläche Spin."
+    },
+    {
+      "id": "siux",
+      "name": "Siux Diablo Go 4",
+      "shape": "tear",
+      "shapeLabel": "Tropfen",
+      "best": "Sportliche Einsteiger und Tennisspieler",
+      "weight": "340–375 g (Angaben schwanken)",
+      "price": "80–125 €",
+      "url": "https://padelshop.com/de/products/siux-diablo-go-4-padel-racket",
+      "title": "Das Upgrade für Sportliche und Tennis-Umsteiger",
+      "text": "Der Diablo Go 4 ist kein reiner Anfängerschläger, sondern der nächste Schritt. Er hat einen Carbon-Rahmen, eine Tropfenform und eine mittlere Balance. Wer vom Tennis kommt, bringt oft schon die Technik für mehr Power mit und wäre mit einem reinen Einsteigermodell schnell unterfordert.",
+      "extra": "**Achtung bei den Daten:** Je nach Shop werden 340–360 g oder 355–375 g angegeben. Rechne mit einem Schläger im Bereich um 355–365 g.",
+      "pro": [
+        "Mehr Power und Stabilität",
+        "Längere Nutzungsdauer",
+        "Gutes Preis-Leistungs-Verhältnis"
+      ],
+      "con": [
+        "Weniger fehlerverzeihend",
+        "Für absolute Neulinge zu anspruchsvoll"
+      ],
+      "skip": "du Padel erst ausprobierst oder Armprobleme hast.",
+      "reason": "Du bringst Erfahrung aus dem Tennis mit oder spielst oft. Ein reiner Einsteigerschläger wäre für dich schnell zu wenig."
+    }
+  ],
+  "article": {
+    "metaTitle": "Padelschläger für Anfänger 2026: 4 Empfehlungen ab 65 € | Padelstart",
+    "adNote": "Werbehinweis: Links mit * sind Werbelinks. Kaufst du darüber, erhalten wir eine kleine Provision. Der Preis ändert sich für dich nicht.",
+    "title": "Padelschläger für Anfänger: Diese 4 Modelle empfehlen wir 2026",
+    "byline": "Von [Dein Name]. Recherche-Vergleich auf Basis von Herstellerangaben, Händlerdaten und Fachtests. Zuletzt aktualisiert: [Datum].",
+    "answer": "**Die kurze Antwort:** Nimm als Anfänger einen Schläger mit runder oder Tropfenform, weichem Kern, Glasfaser-Oberfläche und rund 350–360 g. Solche Modelle kosten 65–100 € und verzeihen Fehltreffer. Teure Carbon-Schläger ab 200 € machen dein Spiel am Anfang nicht besser, sondern schwerer.",
+    "quickTitle": "So findest du in 30 Sekunden den richtigen Schläger",
+    "quick": [
+      "**Du hast Padel erst ein paarmal gespielt und willst einfach Spaß?** Nimm den HEAD Evo Speed.",
+      "**Du hast Probleme mit Ellbogen oder Handgelenk oder spielst sehr defensiv?** Nimm den Wilson Optix V2 Lite.",
+      "**Du bist eher zierlich oder willst einen möglichst leichten Schläger?** Nimm den Dunlop Nanomax Lite.",
+      "**Du kommst vom Tennis oder spielst mehr als einmal pro Woche?** Nimm den Siux Diablo Go 4."
+    ],
+    "basicsTitle": "Worauf es bei einem Anfänger-Schläger ankommt",
+    "basics": [
+      {
+        "title": "Form",
+        "text": "Runde Schläger haben den Sweetspot in der Mitte und nahe am Griff. Das macht sie fehlerverzeihend und gut kontrollierbar. Tropfenformen sind der Allround-Kompromiss mit etwas mehr Power. Diamant-Schläger sind kopflastig und für Einsteiger zu anspruchsvoll."
+      },
+      {
+        "title": "Gewicht",
+        "text": "Hier widersprechen sich die Shops: Je nach Quelle werden 340–360 g, 350–365 g oder 360–375 g empfohlen. Unsere Faustregel: Frauen und leichtere Spieler 345–355 g, Männer 355–365 g. Hersteller geben oft ±10 g Toleranz an, zwei Exemplare desselben Modells können sich also spürbar unterscheiden."
+      },
+      {
+        "title": "Kern und Oberfläche",
+        "text": "Ein weicher Kern (Soft EVA oder Foam) und eine Glasfaser-Oberfläche dämpfen Vibrationen und schonen den Arm. Carbon ist steifer und gibt bei harten Schlägen mehr Kontrolle, verzeiht aber weniger."
+      },
+      {
+        "title": "Preis",
+        "text": "Gute Einsteiger-Schläger liegen bei 60–105 €. Weil viele Modelle dauerhaft reduziert sind, ist die UVP kein guter Maßstab."
+      }
+    ],
+    "mistakesTitle": "Die drei häufigsten Fehler beim ersten Schlägerkauf",
+    "mistakes": [
+      {
+        "title": "Den Schläger der Profis kaufen.",
+        "text": "Profi-Modelle sind hart, kopflastig und teuer. Sie bestrafen Fehltreffer und belasten den Ellbogen."
+      },
+      {
+        "title": "Nur nach Optik kaufen.",
+        "text": "Farbe und Design sagen nichts über Form, Gewicht und Kern."
+      },
+      {
+        "title": "Zum billigsten No-Name-Set greifen.",
+        "text": "Sets unter 40 € haben oft einen sehr harten Kern und halten nicht lange. Ein Markenschläger für 65 € ist die bessere Investition."
+      }
+    ],
+    "extrasTitle": "Was du außer dem Schläger brauchst",
+    "extras": "Für den Start reichen Padel- oder Hallenschuhe mit Fischgrätprofil (keine Laufschuhe), eine Dose Bälle und ein Overgrip. Einen eigenen Ratgeber zum Starterset veröffentlichen wir in Kürze.",
+    "faq": [
+      {
+        "q": "Wie viel sollte ein Anfänger für einen Padelschläger ausgeben?",
+        "a": "60–105 €. Darunter leidet die Qualität, darüber zahlst du für Eigenschaften, die du noch nicht nutzen kannst."
+      },
+      {
+        "q": "Rund oder Tropfen?",
+        "a": "Rund für maximale Kontrolle und Armschonung, Tropfen für einen Allrounder mit etwas mehr Power. Diamant meiden."
+      },
+      {
+        "q": "Kann ich Schläger vorher testen?",
+        "a": "Ja. Viele Clubs verleihen Schläger, und einige Shops bieten bezahlte Testschläger an. Probier mindestens eine runde und eine Tropfenform aus."
+      },
+      {
+        "q": "Wie lange hält ein Einsteiger-Schläger?",
+        "a": "Bei ein bis zwei Spielen pro Woche etwa ein bis zwei Jahre. Ein Schutzband am Rahmen verlängert die Lebensdauer."
+      }
+    ],
+    "authorName": "[Dein Name]",
+    "authorBio": "[Zwei Sätze zu dir.]"
+  },
+  "about": {
+    "title": "Über uns und wie unsere Empfehlungen entstehen",
+    "intro": "Padelstart ist ein unabhängiger Ratgeber für Menschen, die gerade mit Padel anfangen. Hinter der Seite steht [Dein Name] aus [Stadt]. Wir testen die Schläger nicht selbst auf dem Platz, sondern recherchieren gründlich und bereiten die Kaufentscheidung verständlich auf.",
+    "stepsTitle": "So entstehen unsere Empfehlungen",
+    "steps": [
+      "Wir sammeln die Herstellerangaben und vergleichen sie mit den Angaben mehrerer Shops. Widersprüche nennen wir offen.",
+      "Wir werten Tests von Fachportalen und Erfahrungsberichte von Spielern aus und verlinken unsere Quellen.",
+      "Wir bewerten nicht mit Noten, sondern ordnen jedes Modell einem Spielertyp zu.",
+      "Wir aktualisieren Preise und Modelle mindestens alle drei Monate."
+    ],
+    "moneyTitle": "Wie wir Geld verdienen",
+    "money": "Einige Links sind Werbelinks (mit * markiert). Kaufst du darüber, zahlt uns der Händler eine Provision. Hersteller haben keinen Einfluss auf unsere Empfehlungen, und wir nehmen kein Geld für Platzierungen."
+  },
+  "legal": {
+    "werbehinweis": "Mit * gekennzeichnete Links sind Werbe- bzw. Affiliate-Links. Klickst du auf einen solchen Link und kaufst etwas, erhalten wir eine Provision vom Händler. Für dich ändert sich der Preis nicht.\n\nWir nehmen am Partnerprogramm von [Händler/Netzwerk, z. B. Awin] teil. Als Amazon-Partner verdienen wir an qualifizierten Verkäufen.",
+    "impressumName": "[Vor- und Nachname]",
+    "impressumAddress": "[Ladungsfähige Anschrift, z. B. über Impressumsdienst]",
+    "impressumCity": "[PLZ Ort]",
+    "impressumEmail": "[E-Mail-Adresse]",
+    "impressumResponsible": "[Vor- und Nachname, Anschrift wie oben]",
+    "datenschutz": "[Vor Veröffentlichung mit einem Datenschutz-Generator erstellen. Aufzunehmen sind mindestens Hosting, Affiliate-Tracking (Awin, Amazon), Consent-Tool, eingebundene Schriften und gegebenenfalls Analytics.]"
+  }
+}

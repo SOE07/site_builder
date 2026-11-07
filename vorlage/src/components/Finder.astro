@@ -1,0 +1,81 @@
+---
+import AffiliateLink from './AffiliateLink.astro';
+import { fakt, type Produkt } from '../lib/inhalt';
+import { inline, nurText } from '../lib/text';
+interface Props { finder: NonNullable<Awaited<ReturnType<typeof import('../lib/inhalt').ladeFinder>>>; produkte: Produkt[]; ratgeberFuer: Record<string, string>; spalten: readonly string[]; }
+const { finder, produkte, ratgeberFuer, spalten } = Astro.props;
+const daten = {
+  fragen: finder.fragen.map((f) => ({
+    frage: f.frage,
+    antworten: f.antworten.map((a) => ({ text: a.text, punkte: a.punkte.filter((x) => x.produkt).map((x) => ({ p: x.produkt, n: x.punkte })) })),
+  })),
+  produkte: Object.fromEntries(produkte.map((p, i) => [p.slug, {
+    index: i, name: p.name, typ: p.typ,
+    begruendung: inline(p.finderBegruendung),
+    eckdaten: spalten.map((s) => fakt(p, s)).filter(Boolean).map((f) => `${f!.feld}: ${f!.wert}`).join(', '),
+    mehr: ratgeberFuer[p.slug] ? `/ratgeber/${ratgeberFuer[p.slug]}#p-${p.slug}` : '',
+  }])),
+};
+---
+<section class="finder" id="finder" aria-labelledby="finder-titel" hidden>
+  <h2 id="finder-titel">{finder.titel}</h2>
+  <p class="finder-schritt" id="finder-schritt" aria-live="polite"></p>
+  <div class="finder-fortschritt" id="finder-fortschritt" aria-hidden="true">{finder.fragen.map(() => <span />)}</div>
+  <div id="finder-buehne"></div>
+  <script type="application/json" id="finder-daten" set:html={JSON.stringify(daten).replace(/</g, '\\u003c')} />
+  <template id="finder-links">
+    {produkte.map((p) => <div data-slug={p.slug}><AffiliateLink slug={p.slug} label="Preis prüfen" /></div>)}
+  </template>
+</section>
+<noscript><p class="klein">Der Produkt-Finder braucht JavaScript. Alle Empfehlungen findest du in der Tabelle darunter.</p></noscript>
+<script>
+  const wurzel = document.getElementById('finder');
+  if (wurzel) {
+    const d = JSON.parse(document.getElementById('finder-daten')!.textContent || '{}');
+    const bühne = document.getElementById('finder-buehne')!;
+    const schritt = document.getElementById('finder-schritt')!;
+    const balken = [...document.querySelectorAll('#finder-fortschritt span')];
+    const links = document.getElementById('finder-links') as HTMLTemplateElement;
+    let antworten: number[] = [];
+    const el = (tag: string, cls?: string, text?: string) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
+    const ergebnis = () => {
+      const summe: Record<string, number> = {};
+      antworten.forEach((a, i) => d.fragen[i].antworten[a].punkte.forEach((x: any) => { summe[x.p] = (summe[x.p] || 0) + x.n; }));
+      const slugs = Object.keys(d.produkte).sort((a, b) => d.produkte[a].index - d.produkte[b].index);
+      return slugs.reduce((best, s) => ((summe[s] || 0) > (summe[best] || 0) ? s : best), slugs[0]);
+    };
+    const zeige = () => {
+      const i = antworten.length;
+      balken.forEach((b, k) => b.classList.toggle('an', k < i));
+      bühne.replaceChildren();
+      if (i < d.fragen.length) {
+        schritt.textContent = `Frage ${i + 1} von ${d.fragen.length}`;
+        bühne.append(el('p', 'frage', d.fragen[i].frage));
+        const box = el('div', 'optionen');
+        d.fragen[i].antworten.forEach((a: any, k: number) => {
+          const b = el('button', 'opt', a.text) as HTMLButtonElement; b.type = 'button';
+          b.addEventListener('click', () => { antworten.push(k); zeige(); (bühne.querySelector('button') as HTMLElement | null)?.focus({ preventScroll: true }); });
+          box.append(b);
+        });
+        bühne.append(box);
+        if (i > 0) { const z = el('button', 'zurueck', 'Zurück') as HTMLButtonElement; z.type = 'button'; z.addEventListener('click', () => { antworten.pop(); zeige(); }); bühne.append(z); }
+      } else {
+        const s = ergebnis(); const p = d.produkte[s];
+        schritt.textContent = 'Deine Empfehlung';
+        const karte = el('div', 'ergebnis');
+        karte.append(el('span', 'tag', 'Passt zu dir'), el('h3', '', p.name));
+        const b = el('p', 'begruendung'); b.innerHTML = p.begruendung; karte.append(b);
+        karte.append(el('p', 'klein', [p.typ, p.eckdaten].filter(Boolean).join(' · ')));
+        const aktionen = el('div', 'aktionen');
+        const l = links.content.querySelector(`[data-slug="${s}"] a`);
+        if (l) aktionen.append(l.cloneNode(true));
+        if (p.mehr) { const m = el('a', 'btn btn-ghost', 'Ausführlich lesen') as HTMLAnchorElement; m.href = p.mehr; aktionen.append(m); }
+        karte.append(aktionen);
+        bühne.append(karte);
+        const r = el('button', 'zurueck', 'Noch einmal starten') as HTMLButtonElement; r.type = 'button'; r.addEventListener('click', () => { antworten = []; zeige(); }); bühne.append(r);
+      }
+    };
+    wurzel.hidden = false;
+    zeige();
+  }
+</script>

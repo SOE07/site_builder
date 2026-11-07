@@ -1,0 +1,46 @@
+---
+import Basis from '../layouts/Basis.astro';
+import ProduktTabelle from '../components/ProduktTabelle.astro';
+import Finder from '../components/Finder.astro';
+import { ladeSeite, ladeProdukte, ladeRatgeber, ladeFinder } from '../lib/inhalt';
+import { inline, nurText } from '../lib/text';
+import { liste } from '../lib/schema';
+
+const seite = await ladeSeite();
+const produkte = await ladeProdukte();
+const ratgeber = await ladeRatgeber();
+const finder = await ladeFinder();
+const ratgeberFuer: Record<string, string> = {};
+for (const r of ratgeber) for (const s of r.produkte) if (s && !ratgeberFuer[s]) ratgeberFuer[s] = r.slug;
+const zeigeFinder = Boolean(finder?.aktiv && finder.fragen.length && produkte.length);
+---
+<Basis titel={seite.metaTitel} beschreibung={seite.metaBeschreibung} pfad="/"
+  schema={[liste(produkte.map((p) => ({ name: p.name, pfad: ratgeberFuer[p.slug] ? `/ratgeber/${ratgeberFuer[p.slug]}#p-${p.slug}` : '/' })))]}>
+  <div class="wrap hero" data-finder={zeigeFinder ? 'ja' : 'nein'}>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 set:html={inline(seite.heroTitel)} />
+        <p class="lede" set:html={inline(seite.heroText)} />
+        <ul class="facts">{seite.heroPunkte.map((f) => <li set:html={inline(f)} />)}</ul>
+      </div>
+      {zeigeFinder && finder && <Finder finder={finder} produkte={produkte} ratgeberFuer={ratgeberFuer} spalten={seite.tabellenSpalten} />}
+    </div>
+  </div>
+  <section class="block" id="empfehlungen">
+    <div class="wrap">
+      <h2 set:html={inline(seite.empfehlungenTitel)} />
+      <p class="prose" set:html={inline(seite.empfehlungenText)} />
+      <ProduktTabelle produkte={produkte} spalten={seite.tabellenSpalten} />
+      <p class="note" set:html={inline(seite.tabellenHinweis)} />
+    </div>
+  </section>
+  <section class="block" id="ratgeber">
+    <div class="wrap">
+      <h2 set:html={inline(seite.ratgeberTitel)} />
+      <div class="guide-list">
+        {ratgeber.map((r) => <a href={`/ratgeber/${r.slug}`}><strong set:html={inline(r.titel)} /><span>{nurText(r.listenText)}</span></a>)}
+        {seite.geplant.map((g) => <span class="soon"><strong>{g.titel}</strong><span>{g.text}</span></span>)}
+      </div>
+    </div>
+  </section>
+</Basis>
