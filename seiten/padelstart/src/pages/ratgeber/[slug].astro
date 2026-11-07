@@ -1,0 +1,82 @@
+---
+import Basis from '../../layouts/Basis.astro';
+import ProduktTabelle from '../../components/ProduktTabelle.astro';
+import AffiliateLink from '../../components/AffiliateLink.astro';
+import { ladeSeite, ladeProdukte, ladeRatgeber, erfahrung } from '../../lib/inhalt';
+import { inline, richtext, datumDe, nurText } from '../../lib/text';
+import { artikel, brotkrumen, liste } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const alle = await ladeRatgeber();
+  return alle.map((r) => ({ params: { slug: r.slug }, props: { r } }));
+}
+const { r } = Astro.props;
+const seite = await ladeSeite();
+const alleProdukte = await ladeProdukte();
+const produkte = r.produkte.map((s) => alleProdukte.find((p) => p.slug === s)).filter((p): p is NonNullable<typeof p> => Boolean(p));
+const pfad = `/ratgeber/${r.slug}`;
+---
+<Basis titel={r.metaTitel} beschreibung={r.metaBeschreibung} pfad={pfad}
+  schema={[
+    artikel({ titel: r.titel, beschreibung: r.metaBeschreibung, pfad, autor: r.autorName, datum: r.aktualisiert, seitenName: seite.name }),
+    brotkrumen([{ name: 'Start', pfad: '/' }, { name: nurText(r.titel), pfad }]),
+    liste(produkte.map((p) => ({ name: p.name, pfad: `${pfad}#p-${p.slug}` }))),
+  ]}>
+  <article class="page">
+    <div class="wrap">
+      <div class="prose">
+        <h1 set:html={inline(r.titel)} />
+        <p class="byline">{nurText(r.autorZeile)}{r.aktualisiert ? ` Zuletzt aktualisiert: ${datumDe(r.aktualisiert)}.` : ''}</p>
+        <div class="answer" set:html={richtext(r.kurzeAntwort)} />
+      </div>
+      <ProduktTabelle produkte={produkte} spalten={seite.tabellenSpalten} />
+      <div class="prose">
+        {r.schnellwahl.length > 0 && <>
+          <h2 set:html={inline(r.schnellwahlTitel)} />
+          <ol class="quick">{r.schnellwahl.map((q) => <li set:html={inline(q)} />)}</ol>
+        </>}
+        {r.abschnitteVor.map((a) => <><h2 set:html={inline(a.titel)} /><Fragment set:html={richtext(a.text)} /></>)}
+        {produkte.length > 0 && <h2 id="produkte" set:html={inline(r.produkteTitel || 'Die Empfehlungen im Detail')} />}
+        {produkte.map((p) => {
+          const ex = erfahrung(p.slug);
+          const widersprueche = p.fakten.filter((f) => f.widerspruch);
+          return (
+            <section id={`p-${p.slug}`} class="produkt">
+              <div class="produkt-kopf">
+                {p.symbolSvg && <span class="symbol" set:html={p.symbolSvg} />}
+                <h3>{p.name}: <span set:html={inline(p.untertitel)} /></h3>
+              </div>
+              <Fragment set:html={richtext(p.beschreibung)} />
+              <div class="procon">
+                <div><h4>Das spricht dafür</h4><ul>{p.pro.map((x) => <li set:html={inline(x)} />)}</ul></div>
+                <div><h4>Das spricht dagegen</h4><ul>{p.contra.map((x) => <li set:html={inline(x)} />)}</ul></div>
+              </div>
+              {p.nichtKaufenWenn && <p class="skip"><strong>Nicht kaufen, wenn</strong> <span set:html={inline(p.nichtKaufenWenn)} /></p>}
+              {p.hinweis && <Fragment set:html={richtext(p.hinweis)} />}
+              {widersprueche.map((f) => <p class="widerspruch"><strong>Abweichende Angaben ({f.feld}):</strong> {f.widerspruch}</p>)}
+              {ex && <div class="erfahrung"><h4>Eigene Erfahrung</h4><Fragment set:html={richtext(ex)} /></div>}
+              <details class="quellen">
+                <summary>Datenquellen zu {p.name}</summary>
+                <table>
+                  <thead><tr><th scope="col">Angabe</th><th scope="col">Wert</th><th scope="col">Quelle</th><th scope="col">Geprüft am</th></tr></thead>
+                  <tbody>
+                    {p.fakten.map((f) => (
+                      <tr><td>{f.feld}</td><td>{f.wert}</td><td><a href={f.quelle_url} rel="nofollow noopener" target="_blank">{new URL(f.quelle_url).hostname.replace(/^www\./, '')}</a></td><td>{f.geprueft_am ? datumDe(f.geprueft_am) : 'offen'}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </details>
+              <div class="buy"><AffiliateLink slug={p.slug} /></div>
+            </section>
+          );
+        })}
+        {r.abschnitteNach.map((a) => <><h2 set:html={inline(a.titel)} /><Fragment set:html={richtext(a.text)} /></>)}
+        {r.faq.length > 0 && <><h2>Häufige Fragen</h2><dl class="faq">{r.faq.map((f) => <><dt set:html={inline(f.q)} /><dd set:html={inline(f.a)} /></>)}</dl></>}
+        <div class="author">
+          <div class="avatar" aria-hidden="true"></div>
+          <div><strong>{r.autorName}</strong><br /><span class="byline" set:html={inline(r.autorBio)} /> <a href="/ueber-uns">So entstehen unsere Empfehlungen</a></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</Basis>

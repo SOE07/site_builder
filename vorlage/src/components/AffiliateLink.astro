@@ -1,0 +1,6 @@
+---
+// Einziger Weg für Affiliate-Links: /go/<slug>, rel="sponsored nofollow noopener", Kennzeichnung direkt am Link.
+interface Props { slug: string; label?: string; klasse?: string; }
+const { slug, label = 'Preis prüfen', klasse = 'btn btn-primary' } = Astro.props;
+---
+<a class={`${klasse} affiliate`} href={`/go/${slug}`} target="_blank" rel="sponsored nofollow noopener">{label}<span class="werbe-marker">*<small> Werbelink</small></span></a>

@@ -1,0 +1,16 @@
+---
+import Basis from '../layouts/Basis.astro';
+import { ladeUeberUns } from '../lib/inhalt';
+import { inline, richtext, nurText } from '../lib/text';
+const b = await ladeUeberUns();
+---
+<Basis titel={nurText(b.titel)} beschreibung={nurText(b.intro).slice(0, 160)} pfad="/ueber-uns">
+  <article class="page"><div class="wrap prose">
+    <h1 set:html={inline(b.titel)} />
+    <Fragment set:html={richtext(b.intro)} />
+    <h2 set:html={inline(b.schritteTitel)} />
+    <ol>{b.schritte.map((s) => <li set:html={inline(s)} />)}</ol>
+    <h2 set:html={inline(b.geldTitel)} />
+    <Fragment set:html={richtext(b.geld)} />
+  </div></article>
+</Basis>

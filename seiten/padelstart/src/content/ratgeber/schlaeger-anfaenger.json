@@ -1,0 +1,59 @@
+{
+  "titel": "Padelschläger für Anfänger: Diese 4 Modelle empfehlen wir 2026",
+  "metaTitel": "Padelschläger für Anfänger: 4 Empfehlungen | Padelstart",
+  "metaBeschreibung": "Vier Padelschläger für Einsteiger im Vergleich: Empfehlungen nach Spielertyp, Herstellerangaben mit Quellen, Preise und klare Nachteile.",
+  "listenText": "Vier Modelle, ehrlich eingeordnet",
+  "autorZeile": "Von [Dein Name]. Recherche-Vergleich auf Basis von Hersteller- und Händlerangaben.",
+  "aktualisiert": null,
+  "kurzeAntwort": "**Die kurze Antwort:** Nimm als Anfänger einen Schläger mit runder oder Tropfenform, weichem Kern, Glasfaser-Oberfläche und rund 350–360 g. Solche Modelle kosten 65–100 € und verzeihen Fehltreffer. Teure Carbon-Schläger ab 200 € machen dein Spiel am Anfang nicht besser, sondern schwerer.",
+  "schnellwahlTitel": "So findest du in 30 Sekunden den richtigen Schläger",
+  "schnellwahl": [
+    "**Du hast Padel erst ein paarmal gespielt und willst einfach Spaß?** Nimm den HEAD Evo Speed.",
+    "**Du hast Probleme mit Ellbogen oder Handgelenk oder spielst sehr defensiv?** Nimm den Wilson Optix V2 Lite.",
+    "**Du bist eher zierlich oder willst einen möglichst leichten Schläger?** Nimm den Dunlop Nanomax Lite.",
+    "**Du kommst vom Tennis oder spielst mehr als einmal pro Woche?** Nimm den Siux Diablo Go 4."
+  ],
+  "abschnitteVor": [
+    {
+      "titel": "Worauf es bei einem Anfänger-Schläger ankommt",
+      "text": "**Form.** Runde Schläger haben den Sweetspot in der Mitte und nahe am Griff. Das macht sie fehlerverzeihend und gut kontrollierbar. Tropfenformen sind der Allround-Kompromiss mit etwas mehr Power. Diamant-Schläger sind kopflastig und für Einsteiger zu anspruchsvoll.\n\n**Gewicht.** Hier widersprechen sich die Shops: Je nach Quelle werden 340–360 g, 350–365 g oder 360–375 g empfohlen. Unsere Faustregel: Frauen und leichtere Spieler 345–355 g, Männer 355–365 g. Hersteller geben oft ±10 g Toleranz an, zwei Exemplare desselben Modells können sich also spürbar unterscheiden.\n\n**Kern und Oberfläche.** Ein weicher Kern (Soft EVA oder Foam) und eine Glasfaser-Oberfläche dämpfen Vibrationen und schonen den Arm. Carbon ist steifer und gibt bei harten Schlägen mehr Kontrolle, verzeiht aber weniger.\n\n**Preis.** Gute Einsteiger-Schläger liegen bei 60–105 €. Weil viele Modelle dauerhaft reduziert sind, ist die UVP kein guter Maßstab."
+    }
+  ],
+  "produkte": [
+    "head",
+    "wilson",
+    "dunlop",
+    "siux"
+  ],
+  "abschnitteNach": [
+    {
+      "titel": "Die drei häufigsten Fehler beim ersten Schlägerkauf",
+      "text": "1. **Den Schläger der Profis kaufen.** Profi-Modelle sind hart, kopflastig und teuer. Sie bestrafen Fehltreffer und belasten den Ellbogen.\n2. **Nur nach Optik kaufen.** Farbe und Design sagen nichts über Form, Gewicht und Kern.\n3. **Zum billigsten No-Name-Set greifen.** Sets unter 40 € haben oft einen sehr harten Kern und halten nicht lange. Ein Markenschläger für 65 € ist die bessere Investition."
+    },
+    {
+      "titel": "Was du außer dem Schläger brauchst",
+      "text": "Für den Start reichen Padel- oder Hallenschuhe mit Fischgrätprofil (keine Laufschuhe), eine Dose Bälle und ein Overgrip. Einen eigenen Ratgeber zum Starterset veröffentlichen wir in Kürze."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie viel sollte ein Anfänger für einen Padelschläger ausgeben?",
+      "a": "60–105 €. Darunter leidet die Qualität, darüber zahlst du für Eigenschaften, die du noch nicht nutzen kannst."
+    },
+    {
+      "q": "Rund oder Tropfen?",
+      "a": "Rund für maximale Kontrolle und Armschonung, Tropfen für einen Allrounder mit etwas mehr Power. Diamant meiden."
+    },
+    {
+      "q": "Kann ich Schläger vorher testen?",
+      "a": "Ja. Viele Clubs verleihen Schläger, und einige Shops bieten bezahlte Testschläger an. Probier mindestens eine runde und eine Tropfenform aus."
+    },
+    {
+      "q": "Wie lange hält ein Einsteiger-Schläger?",
+      "a": "Bei ein bis zwei Spielen pro Woche etwa ein bis zwei Jahre. Ein Schutzband am Rahmen verlängert die Lebensdauer."
+    }
+  ],
+  "autorName": "[Dein Name]",
+  "autorBio": "[Zwei Sätze zu dir.]",
+  "produkteTitel": "Die vier Schläger im Überblick"
+}

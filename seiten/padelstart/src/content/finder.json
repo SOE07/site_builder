@@ -1,0 +1,241 @@
+{
+  "aktiv": true,
+  "titel": "Schläger-Finder",
+  "fragen": [
+    {
+      "frage": "Wie oft hast du schon Padel gespielt?",
+      "antworten": [
+        {
+          "text": "Noch nie oder ein-, zweimal",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 2
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 1
+            }
+          ]
+        },
+        {
+          "text": "Ein paar Mal, ich will dabeibleiben",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 2
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 4
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 2
+            },
+            {
+              "produkt": "siux",
+              "punkte": 1
+            }
+          ]
+        },
+        {
+          "text": "Ich spiele mindestens einmal pro Woche",
+          "punkte": [
+            {
+              "produkt": "wilson",
+              "punkte": 2
+            },
+            {
+              "produkt": "siux",
+              "punkte": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "frage": "Hast du Erfahrung mit Tennis oder Squash?",
+      "antworten": [
+        {
+          "text": "Ja, ich spiele oder spielte regelmäßig",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 4
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 5
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 4
+            },
+            {
+              "produkt": "siux",
+              "punkte": 7
+            }
+          ]
+        },
+        {
+          "text": "Ein bisschen",
+          "punkte": [
+            {
+              "produkt": "wilson",
+              "punkte": 1
+            }
+          ]
+        },
+        {
+          "text": "Nein",
+          "punkte": [
+            {
+              "produkt": "wilson",
+              "punkte": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "frage": "Hast du Probleme mit Ellbogen oder Handgelenk?",
+      "antworten": [
+        {
+          "text": "Ja, öfter",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 1
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 6
+            }
+          ]
+        },
+        {
+          "text": "Manchmal",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 3
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 4
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 6
+            }
+          ]
+        },
+        {
+          "text": "Nein",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 1
+            },
+            {
+              "produkt": "siux",
+              "punkte": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "frage": "Was ist dir beim Schläger wichtiger?",
+      "antworten": [
+        {
+          "text": "Möglichst leicht und wendig",
+          "punkte": [
+            {
+              "produkt": "dunlop",
+              "punkte": 6
+            },
+            {
+              "produkt": "siux",
+              "punkte": 4
+            }
+          ]
+        },
+        {
+          "text": "Kontrolle und Sicherheit",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 4
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 3
+            },
+            {
+              "produkt": "siux",
+              "punkte": 5
+            }
+          ]
+        },
+        {
+          "text": "Mehr Power für Smashes",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 3
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 1
+            },
+            {
+              "produkt": "siux",
+              "punkte": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "frage": "Wie viel willst du ausgeben?",
+      "antworten": [
+        {
+          "text": "Bis 80 €",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 4
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 5
+            },
+            {
+              "produkt": "dunlop",
+              "punkte": 3
+            }
+          ]
+        },
+        {
+          "text": "Bis 130 €",
+          "punkte": [
+            {
+              "produkt": "head",
+              "punkte": 2
+            },
+            {
+              "produkt": "wilson",
+              "punkte": 2
+            },
+            {
+              "produkt": "siux",
+              "punkte": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

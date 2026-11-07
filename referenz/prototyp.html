@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Padelstart – Der richtige Padelschläger für Einsteiger</title>
+<meta name="description" content="Ehrliche Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, abgeglichene Daten und klare Nachteile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style id="site-style">:root{
+  --bg:#F5F8FB; --surface:#FFFFFF; --ink:#14202E; --muted:#4A5868; --line:#D5DEE8;
+  --court:#1D4F91; --court-deep:#163E73; --court-ink:#FFFFFF; --court-line:rgba(255,255,255,.55);
+  --ball:#DCEB3B; --ball-ink:#1B2A0A; --link:#1D4F91; --warn-bg:#FFF6D6; --warn-ink:#5A4300;
+  --ph-bg:#EEF3F8; --ph-line:#9FB2C7;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1826; --surface:#152335; --ink:#E7EEF6; --muted:#A8B6C6; --line:#2A3B52;
+    --court:#1F5299; --court-deep:#173F78; --court-ink:#FFFFFF; --court-line:rgba(255,255,255,.45);
+    --ball:#D6E640; --ball-ink:#18240A; --link:#8DB8F2; --warn-bg:#3A3212; --warn-ink:#F3E3A8;
+    --ph-bg:#1A2B40; --ph-line:#4C6380;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1826; --surface:#152335; --ink:#E7EEF6; --muted:#A8B6C6; --line:#2A3B52;
+  --court:#1F5299; --court-deep:#173F78; --court-ink:#FFFFFF; --court-line:rgba(255,255,255,.45);
+  --ball:#D6E640; --ball-ink:#18240A; --link:#8DB8F2; --warn-bg:#3A3212; --warn-ink:#F3E3A8;
+  --ph-bg:#1A2B40; --ph-line:#4C6380;
+  color-scheme: dark;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);}
+*,*::before,*::after{box-sizing:inherit;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface);}
+img,svg{max-width:100%;}
+a{color:var(--link);text-underline-offset:.18em;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ball);outline-offset:2px;border-radius:4px;}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;line-height:1.05;letter-spacing:-.005em;margin:0 0 .5em;}
+h1{font-size:clamp(2.4rem,6vw,4.1rem);font-weight:700;}
+h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:700;margin-top:1.6em;}
+h3{font-size:1.55rem;font-weight:600;margin-top:1.6em;}
+p{margin:0 0 1em;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+.prose{max-width:68ch;}
+
+/* Header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.6rem;}
+.brand svg{width:30px;height:30px;}
+nav.main{display:flex;gap:4px;flex-wrap:wrap;}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:600;padding:8px 12px;border-radius:6px;font-size:.98rem;}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--ph-bg);}
+nav.main a:hover{color:var(--ink);}
+@media (max-width:640px){
+  .site-header .wrap{height:auto;padding-top:10px;padding-bottom:8px;flex-direction:column;align-items:flex-start;gap:4px;}
+  nav.main{margin-left:-12px;}
+}
+
+/* Disclosure strip */
+.disclosure{font-size:.9rem;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line);}
+
+/* Hero with finder */
+.hero{padding:48px 0 56px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start;}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px;}}
+.hero p.lede{font-size:1.2rem;color:var(--muted);max-width:40ch;}
+.hero ul.facts{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px;}
+.hero ul.facts li{padding-left:28px;position:relative;}
+.hero ul.facts li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--ball);box-shadow:inset 0 0 0 2px rgba(0,0,0,.08);}
+
+.finder{background:var(--court);color:var(--court-ink);border-radius:14px;padding:28px;position:relative;overflow:hidden;}
+.finder::before{content:"";position:absolute;inset:14px;border:2px solid var(--court-line);border-radius:4px;pointer-events:none;}
+.finder::after{content:"";position:absolute;left:14px;right:14px;top:50%;border-top:2px solid var(--court-line);pointer-events:none;}
+.finder > *{position:relative;z-index:1;}
+.finder h2{margin:0 0 4px;font-size:1.9rem;color:var(--court-ink);}
+.finder .step{font-size:.95rem;opacity:.85;margin-bottom:18px;}
+.finder .q{font-weight:600;font-size:1.2rem;margin:0 0 14px;}
+.finder .opts{display:grid;gap:10px;}
+.finder button.opt{appearance:none;text-align:left;font:inherit;font-weight:500;color:var(--ink);background:var(--surface);border:0;border-radius:8px;padding:14px 16px;cursor:pointer;}
+.finder button.opt:hover{background:var(--ph-bg);}
+.finder .progress{display:flex;gap:6px;margin-bottom:16px;}
+.finder .progress span{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.28);}
+.finder .progress span.on{background:var(--ball);}
+.finder .result{background:var(--surface);color:var(--ink);border-radius:10px;padding:20px;}
+.finder .result h3{margin:4px 0 6px;font-size:1.8rem;}
+.finder .result .tag{display:inline-block;background:var(--ball);color:var(--ball-ink);font-weight:600;font-size:.9rem;padding:2px 10px;border-radius:999px;}
+.finder .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.btn{appearance:none;font:inherit;font-weight:600;border:0;border-radius:8px;padding:11px 16px;cursor:pointer;text-decoration:none;display:inline-block;}
+.btn-primary{background:var(--court);color:#fff;}
+.btn-ghost{background:transparent;color:var(--link);box-shadow:inset 0 0 0 2px var(--line);}
+.finder .back{background:none;border:0;color:var(--court-ink);font:inherit;opacity:.85;cursor:pointer;margin-top:14px;padding:4px 0;text-decoration:underline;}
+
+/* Picks table */
+section.block{padding:8px 0 40px;}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);}
+table.picks{border-collapse:collapse;width:100%;min-width:720px;}
+table.picks th,table.picks td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:middle;}
+table.picks thead th{font-size:.92rem;color:var(--muted);font-weight:600;background:var(--ph-bg);}
+table.picks tbody tr:last-child td{border-bottom:0;}
+table.picks td.name{font-weight:600;}
+table.picks td.shape{width:64px;}
+.shape-ico{width:34px;height:52px;color:var(--court);}
+.note{font-size:.92rem;color:var(--muted);margin-top:10px;}
+
+/* Guides */
+.guide-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink);}
+@media (max-width:800px){.guide-list{grid-template-columns:1fr;}}
+.guide-list a{display:block;padding:18px 18px 22px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);}
+.guide-list a + a{padding-left:18px;}
+@media (max-width:800px){.guide-list a + a{padding-left:0;}}
+.guide-list strong{display:block;font-family:"Barlow Condensed",sans-serif;font-size:1.45rem;line-height:1.1;margin-bottom:6px;}
+.guide-list span{color:var(--muted);font-size:.98rem;}
+.guide-list .soon{opacity:.6;pointer-events:none;}
+
+/* Article */
+article.page{padding:36px 0 60px;}
+.byline{color:var(--muted);font-size:.95rem;}
+.answer{border-left:4px solid var(--ball);background:var(--surface);padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0 28px;}
+.ph{background:var(--ph-bg);border:2px dashed var(--ph-line);border-radius:10px;color:var(--muted);padding:22px;margin:18px 0;font-size:.95rem;}
+.ph.photo{aspect-ratio:16/8;display:flex;align-items:center;justify-content:center;text-align:center;}
+.procon{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0 10px;}
+@media (max-width:640px){.procon{grid-template-columns:1fr;}}
+.procon div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;}
+.procon h4{margin:0 0 6px;font-size:1rem;}
+.procon ul{margin:0;padding-left:1.1em;}
+.skip{background:var(--warn-bg);color:var(--warn-ink);border-radius:8px;padding:10px 14px;margin:10px 0;}
+.buy{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px;}
+.ad{font-size:.85rem;color:var(--muted);}
+.racket-head{display:flex;gap:16px;align-items:center;margin-top:2em;}
+.racket-head svg{flex:none;}
+.racket-head h3{margin:0;}
+ol.mistakes li,ol.quick li{margin-bottom:.6em;}
+.faq dt{font-weight:600;margin-top:1em;}
+.faq dd{margin:4px 0 0;}
+.author{display:flex;gap:16px;align-items:center;border-top:1px solid var(--line);margin-top:40px;padding-top:24px;}
+.author .avatar{width:64px;height:64px;border-radius:50%;background:var(--ph-bg);border:2px dashed var(--ph-line);flex:none;}
+
+/* Footer */
+footer{border-top:1px solid var(--line);background:var(--surface);padding:28px 0 32px;font-size:.95rem;color:var(--muted);}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+footer a{color:var(--muted);margin-right:16px;}
+
+[hidden]{display:none !important;}
+@media (prefers-reduced-motion:no-preference){
+  .finder .stage{animation:in .22s ease-out;}
+  @keyframes in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+}
+
+/* Admin */
+.admin h1{margin-bottom:.3em;}
+.admin details.sec{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:14px 0;}
+.admin details.sec > summary{cursor:pointer;padding:16px 20px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.5rem;}
+.admin .sec-body{padding:0 20px 18px;max-width:820px;}
+.admin details.sub{border-top:1px solid var(--line);padding:6px 0;}
+.admin details.sub > summary{cursor:pointer;padding:10px 0;font-weight:600;}
+.fld{margin:12px 0;}
+.fld label{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px;}
+.fld input,.fld textarea,.fld select{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 11px;}
+.fld textarea{resize:vertical;line-height:1.45;}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:3px solid var(--ball);outline-offset:1px;border-color:var(--court);}
+fieldset.pairs{border:1px solid var(--line);border-radius:8px;padding:6px 16px 14px;margin:16px 0;}
+fieldset.pairs legend{font-weight:600;padding:0 6px;}
+.pair{border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:6px;}
+.btn-small{appearance:none;font:inherit;font-size:.92rem;font-weight:600;color:var(--link);background:transparent;border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer;}
+.btn-small:hover{background:var(--ph-bg);}
+.hint{color:var(--muted);font-size:.92rem;margin-top:10px;}
+.notice{background:var(--warn-bg);color:var(--warn-ink);border-radius:8px;padding:12px 14px;margin:12px 0;}
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:2px solid var(--court);padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 20px rgba(0,0,0,.08);}
+.savebar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.savebar-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.btn[disabled]{opacity:.5;cursor:not-allowed;}
+body:has(.savebar) footer{padding-bottom:110px;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="application/json" id="site-data">{
+ "site": {
+  "name": "Padelstart",
+  "metaTitle": "Padelstart – Der richtige Padelschläger für Einsteiger",
+  "metaDescription": "Ehrliche Kaufberatung für Padel-Einsteiger: Schläger-Finder, vier Empfehlungen nach Spielertyp, abgeglichene Daten und klare Nachteile.",
+  "disclosure": "Mit * markierte Links sind Werbelinks. Kaufst du darüber, erhalten wir eine Provision. Der Preis ändert sich für dich nicht.",
+  "heroTitle": "Dein erster Padelschläger. In fünf Fragen gefunden.",
+  "heroLede": "Wir helfen Einsteigern, den passenden Schläger zu kaufen, ohne Profi-Modelle, Fantasie-Noten oder Testsieger-Listen.",
+  "heroFacts": [
+   "Empfehlungen nach Spielertyp statt nach Rangliste",
+   "Herstellerdaten mit mehreren Shops abgeglichen, Widersprüche offen benannt",
+   "Bei jedem Modell: wann du es **nicht** kaufen solltest"
+  ],
+  "picksTitle": "Unsere vier Empfehlungen",
+  "picksIntro": "Alle vier Schläger kosten unter 130 € und eignen sich für die ersten ein bis zwei Jahre. Welcher zu dir passt, hängt vor allem von deiner Vorerfahrung und deinem Arm ab.",
+  "priceNote": "Preise Stand November 2026, recherchiert bei mehreren Händlern. Sie schwanken stark, viele Modelle sind dauerhaft 20–35 % unter der UVP.",
+  "footerText": "© 2026 Padelstart. Unabhängiger Ratgeber für Padel-Einsteiger."
+ },
+ "rackets": [
+  {
+   "id": "head",
+   "name": "HEAD Evo Speed 2025",
+   "shape": "tear",
+   "shapeLabel": "Tropfen (Oversize)",
+   "best": "Die meisten Einsteiger",
+   "weight": "350 g ±10 g",
+   "price": "65–90 €",
+   "url": "https://padelshop.com/de/products/head-evo-speed-2025",
+   "title": "Der beste Allrounder für Einsteiger",
+   "text": "Der Evo Speed ist der Schläger, den wir den meisten Anfängern zuerst empfehlen. HEAD gibt 350 g (±10 g) und eine Balance von 270 mm an, die Oberfläche besteht aus Glasfaser mit Innegra-Verstärkung. Die große Tropfenform liefert etwas Power, ohne kopflastig zu werden.",
+   "extra": "**Gut zu wissen:** Shops beschreiben die Form völlig unterschiedlich, von „rund“ über „Hybrid“ bis „Tropfen“. HEAD selbst nennt sie „Teardrop Oversize“. Verlass dich auf die Herstellerangabe.",
+   "pro": [
+    "Sehr wendig",
+    "Großer Sweetspot",
+    "Armschonend",
+    "Oft unter 70 € zu haben"
+   ],
+   "con": [
+    "Wenig Durchschlag beim Smash",
+    "Ambitionierte Spieler wachsen nach 6–12 Monaten heraus"
+   ],
+   "skip": "du schon regelmäßig Tennis spielst und hart schlägst.",
+   "reason": "Du willst einfach gut ins Spiel kommen. Der Evo Speed ist leicht, verzeiht Fehler und kostet wenig."
+  },
+  {
+   "id": "wilson",
+   "name": "Wilson Optix V2 Lite",
+   "shape": "round",
+   "shapeLabel": "Rund",
+   "best": "Kontrolle und ein geschonter Arm",
+   "weight": "355 g",
+   "price": "75–100 €",
+   "url": "https://www.wilson.com/de-de/product/optix-v2-lite-wr19070",
+   "title": "Die beste Wahl für Kontrolle und Komfort",
+   "text": "Der Optix V2 Lite ist ein klassischer Kontrollschläger: runde Form, Glasfaser-Oberfläche, weicher Schaumstoffkern. Wilson gibt 355 g unbespannt und eine Balance von 26 cm an, also eher grifflastig. Das macht ihn besonders armschonend.",
+   "extra": "",
+   "pro": [
+    "Sehr fehlerverzeihend",
+    "Ruhiges Spielgefühl",
+    "Starke Marke"
+   ],
+   "con": [
+    "Wenig Power",
+    "Du zahlst etwas für den Namen Wilson"
+   ],
+   "skip": "du gern am Netz angreifst und Punkte mit dem Smash beenden willst.",
+   "reason": "Dein Arm hat Vorrang. Die runde Form und der grifflastige Aufbau nehmen Belastung von Ellbogen und Handgelenk."
+  },
+  {
+   "id": "dunlop",
+   "name": "Dunlop Nanomax Lite 2026",
+   "shape": "hybrid",
+   "shapeLabel": "Hybrid/Tropfen",
+   "best": "Leichte Spieler und Spin-Fans",
+   "weight": "350 g",
+   "price": "65–75 €",
+   "url": "https://www.padelreference.com/de/padelschlager/p/dunlop-nanomax-lite-2026",
+   "title": "Der Leichte mit Spin-Bonus",
+   "text": "Der Nanomax Lite bringt laut Dunlop 350 g auf die Waage und hat eine sandgestrahlte, raue Oberfläche, die dem Ball mehr Spin gibt. Der Rahmen besteht aus Graphit, der Kern aus Soft EVA. Er ist wendig und eignet sich gut für Spieler, die am Netz schnell reagieren wollen.",
+   "extra": "",
+   "pro": [
+    "Leicht",
+    "Raue Oberfläche für Slice und Spin",
+    "Günstig"
+   ],
+   "con": [
+    "Keine Schutzhülle dabei",
+    "Bei harten Schlägen etwas unruhiger"
+   ],
+   "skip": "du einen möglichst stabilen, schweren Schläger suchst.",
+   "reason": "Du willst einen leichten, wendigen Schläger. Der Nanomax Lite ist einer der leichtesten Markenschläger und bringt mit seiner rauen Oberfläche Spin."
+  },
+  {
+   "id": "siux",
+   "name": "Siux Diablo Go 4",
+   "shape": "tear",
+   "shapeLabel": "Tropfen",
+   "best": "Sportliche Einsteiger und Tennisspieler",
+   "weight": "340–375 g (Angaben schwanken)",
+   "price": "80–125 €",
+   "url": "https://padelshop.com/de/products/siux-diablo-go-4-padel-racket",
+   "title": "Das Upgrade für Sportliche und Tennis-Umsteiger",
+   "text": "Der Diablo Go 4 ist kein reiner Anfängerschläger, sondern der nächste Schritt. Er hat einen Carbon-Rahmen, eine Tropfenform und eine mittlere Balance. Wer vom Tennis kommt, bringt oft schon die Technik für mehr Power mit und wäre mit einem reinen Einsteigermodell schnell unterfordert.",
+   "extra": "**Achtung bei den Daten:** Je nach Shop werden 340–360 g oder 355–375 g angegeben. Rechne mit einem Schläger im Bereich um 355–365 g.",
+   "pro": [
+    "Mehr Power und Stabilität",
+    "Längere Nutzungsdauer",
+    "Gutes Preis-Leistungs-Verhältnis"
+   ],
+   "con": [
+    "Weniger fehlerverzeihend",
+    "Für absolute Neulinge zu anspruchsvoll"
+   ],
+   "skip": "du Padel erst ausprobierst oder Armprobleme hast.",
+   "reason": "Du bringst Erfahrung aus dem Tennis mit oder spielst oft. Ein reiner Einsteigerschläger wäre für dich schnell zu wenig."
+  }
+ ],
+ "article": {
+  "metaTitle": "Padelschläger für Anfänger 2026: 4 Empfehlungen ab 65 € | Padelstart",
+  "adNote": "Werbehinweis: Links mit * sind Werbelinks. Kaufst du darüber, erhalten wir eine kleine Provision. Der Preis ändert sich für dich nicht.",
+  "title": "Padelschläger für Anfänger: Diese 4 Modelle empfehlen wir 2026",
+  "byline": "Von [Dein Name]. Recherche-Vergleich auf Basis von Herstellerangaben, Händlerdaten und Fachtests. Zuletzt aktualisiert: [Datum].",
+  "answer": "**Die kurze Antwort:** Nimm als Anfänger einen Schläger mit runder oder Tropfenform, weichem Kern, Glasfaser-Oberfläche und rund 350–360 g. Solche Modelle kosten 65–100 € und verzeihen Fehltreffer. Teure Carbon-Schläger ab 200 € machen dein Spiel am Anfang nicht besser, sondern schwerer.",
+  "quickTitle": "So findest du in 30 Sekunden den richtigen Schläger",
+  "quick": [
+   "**Du hast Padel erst ein paarmal gespielt und willst einfach Spaß?** Nimm den HEAD Evo Speed.",
+   "**Du hast Probleme mit Ellbogen oder Handgelenk oder spielst sehr defensiv?** Nimm den Wilson Optix V2 Lite.",
+   "**Du bist eher zierlich oder willst einen möglichst leichten Schläger?** Nimm den Dunlop Nanomax Lite.",
+   "**Du kommst vom Tennis oder spielst mehr als einmal pro Woche?** Nimm den Siux Diablo Go 4."
+  ],
+  "basicsTitle": "Worauf es bei einem Anfänger-Schläger ankommt",
+  "basics": [
+   {
+    "title": "Form",
+    "text": "Runde Schläger haben den Sweetspot in der Mitte und nahe am Griff. Das macht sie fehlerverzeihend und gut kontrollierbar. Tropfenformen sind der Allround-Kompromiss mit etwas mehr Power. Diamant-Schläger sind kopflastig und für Einsteiger zu anspruchsvoll."
+   },
+   {
+    "title": "Gewicht",
+    "text": "Hier widersprechen sich die Shops: Je nach Quelle werden 340–360 g, 350–365 g oder 360–375 g empfohlen. Unsere Faustregel: Frauen und leichtere Spieler 345–355 g, Männer 355–365 g. Hersteller geben oft ±10 g Toleranz an, zwei Exemplare desselben Modells können sich also spürbar unterscheiden."
+   },
+   {
+    "title": "Kern und Oberfläche",
+    "text": "Ein weicher Kern (Soft EVA oder Foam) und eine Glasfaser-Oberfläche dämpfen Vibrationen und schonen den Arm. Carbon ist steifer und gibt bei harten Schlägen mehr Kontrolle, verzeiht aber weniger."
+   },
+   {
+    "title": "Preis",
+    "text": "Gute Einsteiger-Schläger liegen bei 60–105 €. Weil viele Modelle dauerhaft reduziert sind, ist die UVP kein guter Maßstab."
+   }
+  ],
+  "mistakesTitle": "Die drei häufigsten Fehler beim ersten Schlägerkauf",
+  "mistakes": [
+   {
+    "title": "Den Schläger der Profis kaufen.",
+    "text": "Profi-Modelle sind hart, kopflastig und teuer. Sie bestrafen Fehltreffer und belasten den Ellbogen."
+   },
+   {
+    "title": "Nur nach Optik kaufen.",
+    "text": "Farbe und Design sagen nichts über Form, Gewicht und Kern."
+   },
+   {
+    "title": "Zum billigsten No-Name-Set greifen.",
+    "text": "Sets unter 40 € haben oft einen sehr harten Kern und halten nicht lange. Ein Markenschläger für 65 € ist die bessere Investition."
+   }
+  ],
+  "extrasTitle": "Was du außer dem Schläger brauchst",
+  "extras": "Für den Start reichen Padel- oder Hallenschuhe mit Fischgrätprofil (keine Laufschuhe), eine Dose Bälle und ein Overgrip. Einen eigenen Ratgeber zum Starterset veröffentlichen wir in Kürze.",
+  "faq": [
+   {
+    "q": "Wie viel sollte ein Anfänger für einen Padelschläger ausgeben?",
+    "a": "60–105 €. Darunter leidet die Qualität, darüber zahlst du für Eigenschaften, die du noch nicht nutzen kannst."
+   },
+   {
+    "q": "Rund oder Tropfen?",
+    "a": "Rund für maximale Kontrolle und Armschonung, Tropfen für einen Allrounder mit etwas mehr Power. Diamant meiden."
+   },
+   {
+    "q": "Kann ich Schläger vorher testen?",
+    "a": "Ja. Viele Clubs verleihen Schläger, und einige Shops bieten bezahlte Testschläger an. Probier mindestens eine runde und eine Tropfenform aus."
+   },
+   {
+    "q": "Wie lange hält ein Einsteiger-Schläger?",
+    "a": "Bei ein bis zwei Spielen pro Woche etwa ein bis zwei Jahre. Ein Schutzband am Rahmen verlängert die Lebensdauer."
+   }
+  ],
+  "authorName": "[Dein Name]",
+  "authorBio": "[Zwei Sätze zu dir.]"
+ },
+ "about": {
+  "title": "Über uns und wie unsere Empfehlungen entstehen",
+  "intro": "Padelstart ist ein unabhängiger Ratgeber für Menschen, die gerade mit Padel anfangen. Hinter der Seite steht [Dein Name] aus [Stadt]. Wir testen die Schläger nicht selbst auf dem Platz, sondern recherchieren gründlich und bereiten die Kaufentscheidung verständlich auf.",
+  "stepsTitle": "So entstehen unsere Empfehlungen",
+  "steps": [
+   "Wir sammeln die Herstellerangaben und vergleichen sie mit den Angaben mehrerer Shops. Widersprüche nennen wir offen.",
+   "Wir werten Tests von Fachportalen und Erfahrungsberichte von Spielern aus und verlinken unsere Quellen.",
+   "Wir bewerten nicht mit Noten, sondern ordnen jedes Modell einem Spielertyp zu.",
+   "Wir aktualisieren Preise und Modelle mindestens alle drei Monate."
+  ],
+  "moneyTitle": "Wie wir Geld verdienen",
+  "money": "Einige Links sind Werbelinks (mit * markiert). Kaufst du darüber, zahlt uns der Händler eine Provision. Hersteller haben keinen Einfluss auf unsere Empfehlungen, und wir nehmen kein Geld für Platzierungen."
+ },
+ "legal": {
+  "werbehinweis": "Mit * gekennzeichnete Links sind Werbe- bzw. Affiliate-Links. Klickst du auf einen solchen Link und kaufst etwas, erhalten wir eine Provision vom Händler. Für dich ändert sich der Preis nicht.\n\nWir nehmen am Partnerprogramm von [Händler/Netzwerk, z. B. Awin] teil. Als Amazon-Partner verdienen wir an qualifizierten Verkäufen.",
+  "impressumName": "[Vor- und Nachname]",
+  "impressumAddress": "[Ladungsfähige Anschrift, z. B. über Impressumsdienst]",
+  "impressumCity": "[PLZ Ort]",
+  "impressumEmail": "[E-Mail-Adresse]",
+  "impressumResponsible": "[Vor- und Nachname, Anschrift wie oben]",
+  "datenschutz": "[Vor Veröffentlichung mit einem Datenschutz-Generator erstellen. Aufzunehmen sind mindestens Hosting, Affiliate-Tracking (Awin, Amazon), Consent-Tool, eingebundene Schriften und gegebenenfalls Analytics.]"
+ }
+}</script>
+<script id="app-script">(function(){
+'use strict';
+var DRAFT_KEY = 'padelstart-draft';
+var served = JSON.parse(document.getElementById('site-data').textContent);
+var ORIGINAL = JSON.stringify(served);
+var state = JSON.parse(ORIGINAL);
+var dirty = false;
+var canEdit = false;
+var artifactApi = null;
+var readOnlyKnown = false;
+var answers = [];
+var pendingScroll = null;
+var draftOffer = null;
+
+try {
+  var stored = sessionStorage.getItem(DRAFT_KEY);
+  if (stored) {
+    if (stored === ORIGINAL) sessionStorage.removeItem(DRAFT_KEY);
+    else draftOffer = stored;
+  }
+} catch (e) {}
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmt(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
+function paras(s){ return String(s||'').split(/\n\s*\n/).map(function(p){ return '<p>'+fmt(p).replace(/\n/g,'<br>')+'</p>'; }).join(''); }
+function safeUrl(u){ return /^https?:\/\//i.test(u||'') ? esc(u) : '#'; }
+function getPath(obj, path){ return path.split('.').reduce(function(o,k){ return o == null ? o : o[k]; }, obj); }
+function setPath(obj, path, val){ var ks = path.split('.'); var last = ks.pop(); var o = ks.reduce(function(o,k){ return o[k]; }, obj); o[last] = val; }
+function racketById(id){ for (var i=0;i<state.rackets.length;i++){ if (state.rackets[i].id === id) return state.rackets[i]; } return state.rackets[0]; }
+
+var SHAPES = {
+  round:'<svg class="shape-ico" viewBox="0 0 34 52" aria-label="Runde Form" role="img"><ellipse cx="17" cy="17" rx="15" ry="15" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="14" y="31" width="6" height="19" rx="2" fill="currentColor"/></svg>',
+  tear:'<svg class="shape-ico" viewBox="0 0 34 52" aria-label="Tropfenform" role="img"><path d="M17 2C26 2 32 9 32 17c0 7-4 12-9 15H11C6 29 2 24 2 17 2 9 8 2 17 2Z" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="14" y="32" width="6" height="18" rx="2" fill="currentColor"/></svg>',
+  hybrid:'<svg class="shape-ico" viewBox="0 0 34 52" aria-label="Hybridform" role="img"><path d="M17 2C26 2 32 8 32 16c0 8-5 13-10 16H12C7 29 2 24 2 16 2 8 8 2 17 2Z" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="14" y="32" width="6" height="18" rx="2" fill="currentColor"/></svg>'
+};
+var LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="5" fill="var(--court)"/><rect x="6" y="6" width="20" height="20" rx="1" fill="none" stroke="#fff" stroke-width="1.6"/><line x1="6" y1="16" x2="26" y2="16" stroke="#fff" stroke-width="1.6"/><circle cx="21" cy="11" r="3" fill="var(--ball)"/></svg>';
+
+/* ---------- public views ---------- */
+function buyLink(r, label){ return '<a class="btn btn-primary" href="'+safeUrl(r.url)+'" target="_blank" rel="sponsored nofollow noopener">'+esc(label||'Preis prüfen')+'*</a>'; }
+
+function picksTable(){
+  var rows = state.rackets.map(function(r){
+    return '<tr><td class="shape">'+(SHAPES[r.shape]||SHAPES.tear)+'</td><td class="name">'+esc(r.name)+'<br><span class="ad">'+esc(r.shapeLabel)+'</span></td><td>'+fmt(r.best)+'</td><td>'+esc(r.weight)+'</td><td>'+esc(r.price)+'</td><td><a href="'+safeUrl(r.url)+'" target="_blank" rel="sponsored nofollow noopener">Zum Angebot*</a></td></tr>';
+  }).join('');
+  return '<div class="table-scroll"><table class="picks"><thead><tr><th scope="col">Form</th><th scope="col">Schläger</th><th scope="col">Am besten für</th><th scope="col">Gewicht laut Hersteller</th><th scope="col">Preis ca.</th><th scope="col"><span class="ad">Werbelink</span></th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+}
+
+function viewStart(){
+  var s = state.site;
+  return '<div class="wrap disclosure">'+fmt(s.disclosure)+' <a href="#werbehinweis">Mehr dazu</a></div>'+
+  '<div class="wrap hero"><div class="hero-grid"><div>'+
+    '<h1>'+fmt(s.heroTitle)+'</h1><p class="lede">'+fmt(s.heroLede)+'</p>'+
+    '<ul class="facts">'+s.heroFacts.map(function(f){ return '<li>'+fmt(f)+'</li>'; }).join('')+'</ul>'+
+  '</div><div class="finder" id="finder" aria-live="polite"><h2>Schläger-Finder</h2><div class="step" id="finder-step"></div><div class="progress" id="finder-progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="stage" id="finder-stage"></div></div></div></div>'+
+  '<section class="block"><div class="wrap"><h2>'+fmt(s.picksTitle)+'</h2><p class="prose">'+fmt(s.picksIntro)+'</p>'+picksTable()+'<p class="note">'+fmt(s.priceNote)+'</p></div></section>'+
+  '<section class="block"><div class="wrap"><h2>Ratgeber für Einsteiger</h2><div class="guide-list">'+
+    '<a href="#schlaeger-anfaenger"><strong>'+fmt(state.article.title)+'</strong><span>Vier Modelle, ehrlich eingeordnet</span></a>'+
+    '<a class="soon" aria-disabled="true"><strong>Padelschuhe für Einsteiger</strong><span>Erscheint in Kürze</span></a>'+
+    '<a class="soon" aria-disabled="true"><strong>Padel-Starterset</strong><span>Erscheint in Kürze</span></a>'+
+  '</div></div></section>';
+}
+
+function viewArticle(){
+  var a = state.article;
+  var rackets = state.rackets.map(function(r){
+    return '<section id="r-'+esc(r.id)+'"><div class="racket-head">'+(SHAPES[r.shape]||SHAPES.tear)+'<h3>'+esc(r.name)+': '+fmt(r.title)+'</h3></div>'+
+      '<p>'+fmt(r.text)+'</p>'+
+      '<div class="procon"><div><h4>Das spricht dafür</h4><ul>'+r.pro.map(function(x){ return '<li>'+fmt(x)+'</li>'; }).join('')+'</ul></div>'+
+      '<div><h4>Das spricht dagegen</h4><ul>'+r.con.map(function(x){ return '<li>'+fmt(x)+'</li>'; }).join('')+'</ul></div></div>'+
+      '<p class="skip"><strong>Nicht kaufen, wenn</strong> '+fmt(r.skip)+'</p>'+
+      (r.extra ? '<p>'+fmt(r.extra)+'</p>' : '')+
+      '<div class="buy">'+buyLink(r)+'</div></section>';
+  }).join('');
+  return '<article class="page"><div class="wrap"><div class="prose">'+
+    '<p class="ad">'+fmt(a.adNote)+'</p><h1>'+fmt(a.title)+'</h1><p class="byline">'+fmt(a.byline)+'</p>'+
+    '<div class="answer"><p style="margin:0">'+fmt(a.answer)+'</p></div></div>'+
+    picksTable()+
+    '<div class="prose"><h2>'+fmt(a.quickTitle)+'</h2><ol class="quick">'+a.quick.map(function(q){ return '<li>'+fmt(q)+'</li>'; }).join('')+'</ol>'+
+    '<p>Lieber per Klick? <a href="#start">Zum Schläger-Finder</a></p>'+
+    '<h2>'+fmt(a.basicsTitle)+'</h2>'+a.basics.map(function(b){ return '<p><strong>'+fmt(b.title)+'.</strong> '+fmt(b.text)+'</p>'; }).join('')+
+    rackets+
+    '<h2>'+fmt(a.mistakesTitle)+'</h2><ol class="mistakes">'+a.mistakes.map(function(m){ return '<li><strong>'+fmt(m.title)+'</strong> '+fmt(m.text)+'</li>'; }).join('')+'</ol>'+
+    '<h2>'+fmt(a.extrasTitle)+'</h2><p>'+fmt(a.extras)+'</p>'+
+    '<h2>Häufige Fragen</h2><dl class="faq">'+a.faq.map(function(f){ return '<dt>'+fmt(f.q)+'</dt><dd>'+fmt(f.a)+'</dd>'; }).join('')+'</dl>'+
+    '<div class="author"><div class="avatar" aria-hidden="true"></div><div><strong>'+fmt(a.authorName)+'</strong><br><span class="byline">'+fmt(a.authorBio)+' <a href="#ueber-uns">So entstehen unsere Empfehlungen</a></span></div></div>'+
+  '</div></div></article>';
+}
+
+function viewAbout(){
+  var b = state.about;
+  return '<article class="page"><div class="wrap prose"><h1>'+fmt(b.title)+'</h1>'+paras(b.intro)+
+    '<h2>'+fmt(b.stepsTitle)+'</h2><ol>'+b.steps.map(function(s){ return '<li>'+fmt(s)+'</li>'; }).join('')+'</ol>'+
+    '<h2>'+fmt(b.moneyTitle)+'</h2>'+paras(b.money)+'</div></article>';
+}
+function viewWerbe(){ return '<article class="page"><div class="wrap prose"><h1>Werbehinweis</h1>'+paras(state.legal.werbehinweis)+'</div></article>'; }
+function viewImpressum(){
+  var l = state.legal;
+  return '<article class="page"><div class="wrap prose"><h1>Impressum</h1>'+
+    '<p><strong>Angaben gemäß § 5 DDG</strong><br>'+esc(l.impressumName)+'<br>'+esc(l.impressumAddress)+'<br>'+esc(l.impressumCity)+'</p>'+
+    '<p><strong>Kontakt</strong><br>E-Mail: '+esc(l.impressumEmail)+'</p>'+
+    '<p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>'+esc(l.impressumResponsible)+'</p></div></article>';
+}
+function viewDatenschutz(){ return '<article class="page"><div class="wrap prose"><h1>Datenschutzerklärung</h1>'+paras(state.legal.datenschutz)+'</div></article>'; }
+
+/* ---------- finder ---------- */
+var QUESTIONS = [
+  {q:'Wie oft hast du schon Padel gespielt?', o:[['Noch nie oder ein-, zweimal','new'],['Ein paar Mal, ich will dabeibleiben','some'],['Ich spiele mindestens einmal pro Woche','often']]},
+  {q:'Hast du Erfahrung mit Tennis oder Squash?', o:[['Ja, ich spiele oder spielte regelmäßig','yes'],['Ein bisschen','little'],['Nein','no']]},
+  {q:'Hast du Probleme mit Ellbogen oder Handgelenk?', o:[['Ja, öfter','yes'],['Manchmal','sometimes'],['Nein','no']]},
+  {q:'Was ist dir beim Schläger wichtiger?', o:[['Möglichst leicht und wendig','light'],['Kontrolle und Sicherheit','control'],['Mehr Power für Smashes','power']]},
+  {q:'Wie viel willst du ausgeben?', o:[['Bis 80 €','low'],['Bis 130 €','mid']]}
+];
+function recommend(a){
+  var exp=a[0], tennis=a[1], arm=a[2], pref=a[3], budget=a[4];
+  if (arm==='yes') return 'wilson';
+  if (budget==='mid' && (tennis==='yes' || exp==='often') && arm!=='sometimes') return 'siux';
+  if (pref==='light') return 'dunlop';
+  if (pref==='control' || arm==='sometimes') return (exp==='new' ? 'head' : 'wilson');
+  return 'head';
+}
+function renderFinder(){
+  var stage = document.getElementById('finder-stage'); if (!stage) return;
+  var stepEl = document.getElementById('finder-step');
+  var bars = document.querySelectorAll('#finder-progress span');
+  var i = answers.length;
+  Array.prototype.forEach.call(bars, function(b,idx){ b.classList.toggle('on', idx < i); });
+  if (i < QUESTIONS.length){
+    stepEl.textContent = 'Frage '+(i+1)+' von '+QUESTIONS.length;
+    var q = QUESTIONS[i];
+    stage.innerHTML = '<p class="q">'+esc(q.q)+'</p><div class="opts">'+q.o.map(function(o){ return '<button type="button" class="opt" data-v="'+o[1]+'">'+esc(o[0])+'</button>'; }).join('')+'</div>'+(i>0?'<button type="button" class="back" data-act="back">Zurück</button>':'');
+  } else {
+    var r = racketById(recommend(answers));
+    stepEl.textContent = 'Deine Empfehlung';
+    stage.innerHTML = '<div class="result"><span class="tag">Passt zu dir</span><h3>'+esc(r.name)+'</h3><p style="margin:0 0 4px">'+fmt(r.reason)+'</p><p class="ad" style="margin:0">'+esc(r.shapeLabel)+', '+esc(r.weight)+', ca. '+esc(r.price)+'</p>'+
+      '<div class="actions">'+buyLink(r,'Preis prüfen')+'<button type="button" class="btn btn-ghost" data-act="more" data-k="'+esc(r.id)+'">Ausführlich lesen</button></div></div>'+
+      '<button type="button" class="back" data-act="reset">Noch einmal starten</button>';
+  }
+  stage.classList.remove('stage'); void stage.offsetWidth; stage.classList.add('stage');
+}
+
+/* ---------- admin ---------- */
+var LINES = 'lines';
+var ADMIN = [
+  {title:'Startseite', fields:[
+    ['site.name','Name der Seite','text'],
+    ['site.metaTitle','Browser-Titel (SEO)','text'],
+    ['site.metaDescription','Meta-Beschreibung (SEO)','area'],
+    ['site.disclosure','Werbehinweis oben','area'],
+    ['site.heroTitle','Überschrift','text'],
+    ['site.heroLede','Einleitung','area'],
+    ['site.heroFacts','Stichpunkte (einer pro Zeile)',LINES],
+    ['site.picksTitle','Überschrift Empfehlungen','text'],
+    ['site.picksIntro','Text Empfehlungen','area'],
+    ['site.priceNote','Hinweis unter der Tabelle','area'],
+    ['site.footerText','Fußzeile','text']
+  ]},
+  {title:'Schläger', rackets:true},
+  {title:'Artikel', fields:[
+    ['article.metaTitle','Browser-Titel (SEO)','text'],
+    ['article.adNote','Werbehinweis','area'],
+    ['article.title','Überschrift','text'],
+    ['article.byline','Autorenzeile','text'],
+    ['article.answer','Kurze Antwort','area'],
+    ['article.quickTitle','Überschrift Schnellauswahl','text'],
+    ['article.quick','Schnellauswahl (ein Punkt pro Zeile)',LINES],
+    ['article.basicsTitle','Überschrift Grundlagen','text'],
+    ['article.basics','Grundlagen','pairs:title:text:Begriff:Erklärung'],
+    ['article.mistakesTitle','Überschrift Fehler','text'],
+    ['article.mistakes','Fehler','pairs:title:text:Fehler:Erklärung'],
+    ['article.extrasTitle','Überschrift Zubehör','text'],
+    ['article.extras','Text Zubehör','area'],
+    ['article.faq','Häufige Fragen','pairs:q:a:Frage:Antwort'],
+    ['article.authorName','Autor','text'],
+    ['article.authorBio','Autor-Beschreibung','area']
+  ]},
+  {title:'Über uns', fields:[
+    ['about.title','Überschrift','text'],
+    ['about.intro','Einleitung','area'],
+    ['about.stepsTitle','Überschrift Vorgehen','text'],
+    ['about.steps','Schritte (einer pro Zeile)',LINES],
+    ['about.moneyTitle','Überschrift Geld','text'],
+    ['about.money','Text Geld','area']
+  ]},
+  {title:'Rechtliches', fields:[
+    ['legal.impressumName','Impressum: Name','text'],
+    ['legal.impressumAddress','Impressum: Anschrift','text'],
+    ['legal.impressumCity','Impressum: PLZ und Ort','text'],
+    ['legal.impressumEmail','Impressum: E-Mail','text'],
+    ['legal.impressumResponsible','Verantwortlich nach § 18 MStV','text'],
+    ['legal.werbehinweis','Werbehinweis (Absätze durch Leerzeile trennen)','area'],
+    ['legal.datenschutz','Datenschutzerklärung (Absätze durch Leerzeile trennen)','bigarea']
+  ]}
+];
+var RACKET_FIELDS = [
+  ['name','Name','text'],['url','Link zum Angebot (später dein Affiliate-Link)','url'],['price','Preis','text'],['weight','Gewicht','text'],
+  ['shape','Form-Symbol','select'],['shapeLabel','Form (Text)','text'],['best','Am besten für','text'],['title','Untertitel im Artikel','text'],
+  ['text','Beschreibung','area'],['extra','Zusatzhinweis (optional)','area'],['pro','Das spricht dafür (einer pro Zeile)',LINES],
+  ['con','Das spricht dagegen (einer pro Zeile)',LINES],['skip','„Nicht kaufen, wenn …“','text'],['reason','Begründung im Schläger-Finder','area']
+];
+
+function fieldHtml(path, label, type){
+  var v = getPath(state, path), id = 'f-'+path.replace(/\./g,'-');
+  var attrs = ' id="'+id+'" data-path="'+esc(path)+'" data-type="'+type+'"';
+  var input;
+  if (type === 'text' || type === 'url') input = '<input type="'+(type==='url'?'url':'text')+'"'+attrs+' value="'+esc(v)+'">';
+  else if (type === 'area') input = '<textarea rows="3"'+attrs+'>'+esc(v)+'</textarea>';
+  else if (type === 'bigarea') input = '<textarea rows="10"'+attrs+'>'+esc(v)+'</textarea>';
+  else if (type === LINES) input = '<textarea rows="'+Math.max(3,(v||[]).length+1)+'"'+attrs+'>'+esc((v||[]).join('\n'))+'</textarea>';
+  else if (type === 'select') input = '<select'+attrs+'>'+[['round','Rund'],['tear','Tropfen'],['hybrid','Hybrid']].map(function(o){ return '<option value="'+o[0]+'"'+(v===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('')+'</select>';
+  return '<div class="fld"><label for="'+id+'">'+esc(label)+'</label>'+input+'</div>';
+}
+function pairsHtml(path, label, spec){
+  var p = spec.split(':'), k1=p[1], k2=p[2], l1=p[3], l2=p[4];
+  var items = getPath(state, path) || [];
+  return '<fieldset class="pairs" data-pairs="'+esc(path)+'" data-spec="'+esc(spec)+'"><legend>'+esc(label)+'</legend>'+
+    items.map(function(it, i){
+      var base = path+'.'+i+'.';
+      return '<div class="pair"><div class="fld"><label for="f-'+base.replace(/\./g,'-')+k1+'">'+esc(l1)+' '+(i+1)+'</label><input type="text" id="f-'+base.replace(/\./g,'-')+k1+'" data-path="'+esc(base+k1)+'" data-type="text" value="'+esc(it[k1])+'"></div>'+
+        '<div class="fld"><label for="f-'+base.replace(/\./g,'-')+k2+'">'+esc(l2)+'</label><textarea rows="2" id="f-'+base.replace(/\./g,'-')+k2+'" data-path="'+esc(base+k2)+'" data-type="area">'+esc(it[k2])+'</textarea></div>'+
+        '<button type="button" class="btn-small" data-act="pair-del" data-path="'+esc(path)+'" data-i="'+i+'">Entfernen</button></div>';
+    }).join('')+
+    '<button type="button" class="btn-small" data-act="pair-add" data-path="'+esc(path)+'" data-k1="'+k1+'" data-k2="'+k2+'">Eintrag hinzufügen</button></fieldset>';
+}
+function sectionBody(sec){
+  if (sec.rackets){
+    return state.rackets.map(function(r, i){
+      return '<details class="sub"><summary>'+esc(r.name)+'</summary>'+RACKET_FIELDS.map(function(f){ return fieldHtml('rackets.'+i+'.'+f[0], f[1], f[2]); }).join('')+'</details>';
+    }).join('')+'<p class="hint">Die Reihenfolge und die Zuordnung im Schläger-Finder bleiben fest. Neue Schläger kann ich dir auf Wunsch einbauen.</p>';
+  }
+  return sec.fields.map(function(f){ return f[2].indexOf('pairs:')===0 ? pairsHtml(f[0], f[1], f[2]) : fieldHtml(f[0], f[1], f[2]); }).join('');
+}
+function viewAdmin(){
+  if (!canEdit){
+    return '<article class="page"><div class="wrap prose"><h1>Admin</h1><p>Der Admin-Bereich ist nur für Bearbeiter dieser Seite verfügbar. Öffne die Seite mit deinem Claude-Konto, um Inhalte zu ändern.</p></div></article>';
+  }
+  var restore = draftOffer ? '<div class="notice">Es gibt einen nicht veröffentlichten Entwurf aus deiner letzten Sitzung. <button type="button" class="btn-small" data-act="restore">Entwurf wiederherstellen</button> <button type="button" class="btn-small" data-act="drop-draft">Verwerfen</button></div>' : '';
+  return '<article class="page admin"><div class="wrap"><h1>Inhalte bearbeiten</h1>'+
+    '<p class="prose">Änderungen siehst du sofort in der Vorschau. Für alle Besucher sichtbar werden sie erst mit „Veröffentlichen“. Text in **Sternchen** wird fett.</p>'+restore+
+    ADMIN.map(function(sec, i){ return '<details class="sec"'+(i===0?' open':'')+'><summary>'+esc(sec.title)+'</summary><div class="sec-body" data-sec="'+i+'">'+sectionBody(sec)+'</div></details>'; }).join('')+
+  '</div></article>';
+}
+function saveBar(){
+  if (!canEdit || !dirty) return '';
+  var onAdmin = currentRoute() === 'admin';
+  return '<div class="savebar" role="region" aria-label="Ungespeicherte Änderungen"><div class="wrap"><span id="save-status">Ungespeicherte Änderungen</span><div class="savebar-actions">'+
+    (onAdmin ? '<a class="btn btn-ghost" href="#start">Vorschau ansehen</a>' : '<a class="btn btn-ghost" href="#admin">Weiter bearbeiten</a>')+
+    '<button type="button" class="btn btn-ghost" data-act="discard">Verwerfen</button>'+
+    '<button type="button" class="btn btn-primary" data-act="publish"'+(readOnlyKnown?' disabled':'')+'>Veröffentlichen</button></div></div></div>';
+}
+
+/* ---------- document for publishing ---------- */
+function buildDocument(data){
+  var css = document.getElementById('site-style').textContent;
+  var js = document.getElementById('app-script').textContent;
+  var json = JSON.stringify(data, null, 1).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
+  var endTag = '<'+'/script>';
+  return '<!DOCTYPE html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'+
+    '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'+
+    '<title>'+esc(data.site.metaTitle)+'</title>\n'+
+    '<meta name="description" content="'+esc(data.site.metaDescription)+'">\n'+
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'+
+    '<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">\n'+
+    '<style id="site-style">'+css+'</style>\n</head>\n<body>\n<div id="app"></div>\n'+
+    '<script type="application/json" id="site-data">'+json+endTag+'\n'+
+    '<script id="app-script">'+js+endTag+'\n</body>\n</html>\n';
+}
+
+function setStatus(t){ var el = document.getElementById('save-status'); if (el) el.textContent = t; }
+function publishNow(){
+  if (!artifactApi){ setStatus('Veröffentlichen ist in dieser Ansicht nicht möglich.'); return; }
+  var html = buildDocument(state);
+  try { sessionStorage.setItem(DRAFT_KEY, JSON.stringify(state)); } catch (e) {}
+  setStatus('Wird veröffentlicht …');
+  var btn = document.querySelector('[data-act="publish"]'); if (btn) btn.disabled = true;
+  artifactApi.publish(html).then(function(){
+    setStatus('Veröffentlicht. Die Seite lädt neu.');
+  }).catch(function(err){
+    var code = err && err.code;
+    if (code === 'conflict') { setStatus('Inzwischen wurde eine neuere Version veröffentlicht. Die Seite lädt neu, dein Entwurf bleibt erhalten.'); return; }
+    if (code === 'not_writer' || code === 'not_granted' || code === 'consent_required' || code === 'capability_disabled' || code === 'not_declared') { readOnlyKnown = true; setStatus('Diese Ansicht ist schreibgeschützt. Öffne die Seite als Bearbeiter, um zu veröffentlichen.'); return; }
+    if (btn) btn.disabled = false;
+    if (code === 'too_large') setStatus('Die Seite ist zu groß zum Speichern. Kürze lange Texte.');
+    else if (code === 'rate_limited') setStatus('Zu viele Veröffentlichungen in kurzer Zeit. Versuch es in einer Minute noch einmal.');
+    else setStatus('Veröffentlichen ist fehlgeschlagen ('+(code||'unbekannt')+'). Versuch es noch einmal.');
+  });
+}
+
+/* ---------- layout & routing ---------- */
+var ROUTES = { 'start':viewStart, 'schlaeger-anfaenger':viewArticle, 'ueber-uns':viewAbout, 'werbehinweis':viewWerbe, 'impressum':viewImpressum, 'datenschutz':viewDatenschutz, 'admin':viewAdmin };
+function currentRoute(){ var h = (location.hash||'').replace('#',''); return ROUTES[h] ? h : 'start'; }
+
+function render(){
+  var route = currentRoute(), s = state.site;
+  var nav = [['start','Start'],['schlaeger-anfaenger','Schläger'],['ueber-uns','Über uns']];
+  if (canEdit) nav.push(['admin','Admin']);
+  document.getElementById('app').innerHTML =
+    '<header class="site-header"><div class="wrap"><a class="brand" href="#start">'+LOGO+esc(s.name)+'</a><nav class="main" aria-label="Hauptnavigation">'+
+      nav.map(function(n){ return '<a href="#'+n[0]+'"'+(n[0]===route?' aria-current="page"':'')+'>'+n[1]+'</a>'; }).join('')+
+    '</nav></div></header><main>'+ROUTES[route]()+'</main>'+
+    '<footer><div class="wrap"><div>'+fmt(s.footerText)+'</div><div><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="#werbehinweis">Werbehinweis</a></div></div></footer>'+
+    saveBar();
+  document.title = route === 'schlaeger-anfaenger' ? state.article.metaTitle : (route === 'start' ? s.metaTitle : (document.querySelector('main h1') ? document.querySelector('main h1').textContent+' | '+s.name : s.metaTitle));
+  if (route === 'start') renderFinder();
+}
+function route(){
+  render();
+  if (pendingScroll){ var el = document.getElementById(pendingScroll); pendingScroll = null; if (el){ el.scrollIntoView(); return; } }
+  window.scrollTo(0,0);
+}
+function refreshBar(){
+  var old = document.querySelector('.savebar');
+  var html = saveBar();
+  if (old) old.outerHTML = html || '';
+  else if (html) document.getElementById('app').insertAdjacentHTML('beforeend', html);
+}
+function markDirty(){ var was = dirty; dirty = JSON.stringify(state) !== ORIGINAL; if (was !== dirty) refreshBar(); }
+
+/* ---------- events ---------- */
+document.addEventListener('click', function(e){
+  var b = e.target.closest('button'); if (!b) return;
+  if (b.classList.contains('opt')){ answers.push(b.getAttribute('data-v')); renderFinder(); var f = document.querySelector('#finder-stage button'); if (f) f.focus({preventScroll:true}); return; }
+  var act = b.getAttribute('data-act'); if (!act) return;
+  if (act === 'back'){ answers.pop(); renderFinder(); }
+  else if (act === 'reset'){ answers = []; renderFinder(); }
+  else if (act === 'more'){ pendingScroll = 'r-'+b.getAttribute('data-k'); if (location.hash === '#schlaeger-anfaenger') route(); else location.hash = 'schlaeger-anfaenger'; }
+  else if (act === 'publish'){ publishNow(); }
+  else if (act === 'discard'){ state = JSON.parse(ORIGINAL); dirty = false; try { sessionStorage.removeItem(DRAFT_KEY); } catch (er) {} route(); }
+  else if (act === 'restore'){ try { state = JSON.parse(draftOffer); } catch (er) {} draftOffer = null; markDirty(); route(); }
+  else if (act === 'drop-draft'){ draftOffer = null; try { sessionStorage.removeItem(DRAFT_KEY); } catch (er) {} route(); }
+  else if (act === 'pair-add' || act === 'pair-del'){
+    var path = b.getAttribute('data-path'), list = getPath(state, path);
+    if (act === 'pair-add'){ var it = {}; it[b.getAttribute('data-k1')] = ''; it[b.getAttribute('data-k2')] = ''; list.push(it); }
+    else list.splice(parseInt(b.getAttribute('data-i'),10), 1);
+    var fs = b.closest('fieldset'); fs.outerHTML = pairsHtml(path, fs.querySelector('legend').textContent, fs.getAttribute('data-spec'));
+    markDirty();
+  }
+});
+document.addEventListener('input', function(e){
+  var el = e.target, path = el.getAttribute && el.getAttribute('data-path'); if (!path) return;
+  var type = el.getAttribute('data-type');
+  var val = type === LINES ? el.value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean) : el.value;
+  setPath(state, path, val);
+  if (/^rackets\.\d+\.name$/.test(path)){ var sum = el.closest('details.sub'); if (sum) sum.querySelector('summary').textContent = el.value; }
+  markDirty();
+});
+document.addEventListener('change', function(e){ if (e.target.tagName === 'SELECT') e.target.dispatchEvent(new Event('input', {bubbles:true})); });
+window.addEventListener('hashchange', route);
+window.addEventListener('beforeunload', function(e){ if (dirty){ try { sessionStorage.setItem(DRAFT_KEY, JSON.stringify(state)); } catch (er) {} } });
+
+route();
+
+/* ---------- capabilities (light up later) ---------- */
+if (window.claude && typeof window.claude.use === 'function'){
+  window.claude.use('user').then(function(user){
+    if (!user) return;
+    return user.canEdit().then(function(ok){ if (ok){ canEdit = true; render(); } });
+  }).catch(function(){});
+  window.claude.use('artifact').then(function(a){ artifactApi = a; }).catch(function(){});
+}
+})();
+</script>
+</body>
+</html>

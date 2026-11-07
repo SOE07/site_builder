@@ -1,0 +1,12 @@
+{
+  "name": "padelstart",
+  "anzeigename": "Padelstart",
+  "domain": "https://padelstart.netlify.app",
+  "github": {
+    "owner": "SOE07",
+    "repo": "site_builder"
+  },
+  "pfad": "seiten/padelstart",
+  "anrede": "du",
+  "veroeffentlicht": false
+}

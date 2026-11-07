@@ -1,0 +1,15 @@
+{
+  "header": "bar",
+  "hero": "split",
+  "table": "zebra",
+  "radius": "round",
+  "themeColor": "#7e3b25",
+  "farben": {
+    "hue": 15,
+    "accentHue": 126
+  },
+  "schrift": {
+    "display": "Bitter",
+    "body": "Work Sans"
+  }
+}
