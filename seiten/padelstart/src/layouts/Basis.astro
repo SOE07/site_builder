@@ -1,17 +1,18 @@
 ---
 import '../theme/theme.css';
 import theme from '../theme/theme.json';
-import { ladeSeite, ladeRecht, url, seiteConfig } from '../lib/inhalt';
+import { ladeSeite, ladeRecht, ladeWerkzeuge, url, seiteConfig } from '../lib/inhalt';
 import { inline, nurText } from '../lib/text';
 import { json, webseite } from '../lib/schema';
 
-interface Props { titel: string; beschreibung: string; pfad: string; schema?: object[]; noindex?: boolean; }
-const { titel, beschreibung, pfad, schema = [], noindex = false } = Astro.props;
+interface Props { titel: string; beschreibung: string; pfad: string; schema?: object[]; noindex?: boolean; md?: string; }
+const { titel, beschreibung, pfad, schema = [], noindex = false, md } = Astro.props;
 const seite = await ladeSeite();
 const kanonisch = url(pfad);
 const nav = [
   { href: '/', text: 'Start', aktiv: pfad === '/' },
   { href: '/#ratgeber', text: 'Ratgeber', aktiv: pfad.startsWith('/ratgeber') },
+  ...((await ladeWerkzeuge()).length ? [{ href: '/#werkzeuge', text: 'Werkzeuge', aktiv: pfad.startsWith('/werkzeuge') }] : []),
   { href: '/ueber-uns', text: 'Über uns', aktiv: pfad === '/ueber-uns' },
 ];
 ---
@@ -23,6 +24,9 @@ const nav = [
     <title>{nurText(titel)}</title>
     <meta name="description" content={nurText(beschreibung)} />
     <link rel="canonical" href={kanonisch} />
+    {md && <link rel="alternate" type="text/markdown" href={md} title="Markdown-Fassung dieser Seite" />}
+    <link rel="alternate" type="application/json" href="/produkte.json" title="Produktdaten mit Quellen (JSON)" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt: Übersicht für KI-Agenten" />
     {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:title" content={nurText(titel)} />
     <meta property="og:description" content={nurText(beschreibung)} />

@@ -2,7 +2,7 @@
 import Basis from '../layouts/Basis.astro';
 import ProduktTabelle from '../components/ProduktTabelle.astro';
 import Finder from '../components/Finder.astro';
-import { ladeSeite, ladeProdukte, ladeRatgeber, ladeFinder } from '../lib/inhalt';
+import { ladeSeite, ladeProdukte, ladeRatgeber, ladeFinder, ladeWerkzeuge } from '../lib/inhalt';
 import { inline, nurText } from '../lib/text';
 import { liste } from '../lib/schema';
 
@@ -10,11 +10,13 @@ const seite = await ladeSeite();
 const produkte = await ladeProdukte();
 const ratgeber = await ladeRatgeber();
 const finder = await ladeFinder();
+const werkzeuge = await ladeWerkzeuge();
+const hubsZuerst = [...ratgeber].sort((a, b) => Number(b.hub) - Number(a.hub));
 const ratgeberFuer: Record<string, string> = {};
 for (const r of ratgeber) for (const s of r.produkte) if (s && !ratgeberFuer[s]) ratgeberFuer[s] = r.slug;
 const zeigeFinder = Boolean(finder?.aktiv && finder.fragen.length && produkte.length);
 ---
-<Basis titel={seite.metaTitel} beschreibung={seite.metaBeschreibung} pfad="/"
+<Basis titel={seite.metaTitel} beschreibung={seite.metaBeschreibung} pfad="/" md="/index.md"
   schema={[liste(produkte.map((p) => ({ name: p.name, pfad: ratgeberFuer[p.slug] ? `/ratgeber/${ratgeberFuer[p.slug]}#p-${p.slug}` : '/' })))]}>
   <div class="wrap hero" data-finder={zeigeFinder ? 'ja' : 'nein'}>
     <div class="hero-grid">
@@ -38,9 +40,19 @@ const zeigeFinder = Boolean(finder?.aktiv && finder.fragen.length && produkte.le
     <div class="wrap">
       <h2 set:html={inline(seite.ratgeberTitel)} />
       <div class="guide-list">
-        {ratgeber.map((r) => <a href={`/ratgeber/${r.slug}`}><strong set:html={inline(r.titel)} /><span>{nurText(r.listenText)}</span></a>)}
+        {hubsZuerst.map((r) => <a href={`/ratgeber/${r.slug}`}><strong set:html={inline(r.titel)} /><span>{nurText(r.listenText)}</span></a>)}
         {seite.geplant.map((g) => <span class="soon"><strong>{g.titel}</strong><span>{g.text}</span></span>)}
       </div>
     </div>
   </section>
+  {werkzeuge.length > 0 && (
+    <section class="block" id="werkzeuge">
+      <div class="wrap">
+        <h2>Werkzeuge und Rechner</h2>
+        <div class="guide-list">
+          {werkzeuge.map((w) => <a href={`/werkzeuge/${w.slug}`}><strong set:html={inline(w.titel)} /><span>{nurText(w.listenText)}</span></a>)}
+        </div>
+      </div>
+    </section>
+  )}
 </Basis>

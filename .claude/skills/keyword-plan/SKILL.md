@@ -21,5 +21,8 @@ allowed-tools: WebSearch WebFetch Read Write Grep Glob
 ## Ausgabeformat
 Markdown mit Tabelle (Artikel · Haupt-Keyword · Nebenanfragen · Kaufnähe A/B/C · Produkte · Quelle der Anfrage) und einer nummerierten Umsetzungsreihenfolge.
 
+## Weiter
+Für neue Seiten danach `themen-cluster` (baut aus dem Plan einen Cluster mit Hub und Verlinkung).
+
 ## Ablageort
 `seiten/<name>/planung/keywords.md`

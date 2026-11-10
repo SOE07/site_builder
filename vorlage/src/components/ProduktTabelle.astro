@@ -2,7 +2,7 @@
 import AffiliateLink from './AffiliateLink.astro';
 import { fakt, type Produkt } from '../lib/inhalt';
 import { datumDe, inline } from '../lib/text';
-interface Props { produkte: Produkt[]; spalten: readonly string[]; }
+interface Props { produkte: Produkt[]; spalten: readonly string[]; platz?: 'tabelle'; }
 const { produkte, spalten } = Astro.props;
 ---
 <div class="table-scroll">
@@ -32,7 +32,7 @@ const { produkte, spalten } = Astro.props;
               </td>
             );
           })}
-          <td><AffiliateLink slug={p.slug} label="Zum Angebot" klasse="textlink" /></td>
+          <td><AffiliateLink slug={p.slug} label="Zum Angebot" klasse="textlink" platz="tabelle" /></td>
         </tr>
       ))}
     </tbody>

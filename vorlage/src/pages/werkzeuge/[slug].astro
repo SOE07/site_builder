@@ -1,0 +1,31 @@
+---
+import Basis from '../../layouts/Basis.astro';
+import Verwandte from '../../components/Verwandte.astro';
+import { ladeWerkzeuge, ladeSeite } from '../../lib/inhalt';
+import { inline, richtext, nurText } from '../../lib/text';
+import { brotkrumen } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  return (await ladeWerkzeuge()).map((w) => ({ params: { slug: w.slug }, props: { w } }));
+}
+const { w } = Astro.props;
+const seite = await ladeSeite();
+const pfad = `/werkzeuge/${w.slug}`;
+// Werkzeuge sind seiteneigene Komponenten in src/werkzeuge/ (vom Skill werkzeug-bauen geschrieben)
+const komponenten = import.meta.glob('../../werkzeuge/*.astro', { eager: true }) as Record<string, { default: any }>;
+const Komponente = komponenten[`../../werkzeuge/${w.komponente}.astro`]?.default;
+if (!Komponente) throw new Error(`Werkzeug-Komponente src/werkzeuge/${w.komponente}.astro fehlt.`);
+---
+<Basis titel={w.metaTitel} beschreibung={w.metaBeschreibung} pfad={pfad} md={`${pfad}.md`}
+  schema={[brotkrumen([{ name: 'Start', pfad: '/' }, { name: nurText(w.titel), pfad }])]}>
+  <article class="page werkzeug"><div class="wrap prose">
+    <h1 set:html={inline(w.titel)} />
+    <Fragment set:html={richtext(w.einleitung)} />
+    <div class="werkzeug-box"><Komponente /></div>
+    <h2>So rechnet das Werkzeug</h2>
+    <Fragment set:html={richtext(w.methodik)} />
+    {w.quellen.length > 0 && <><h3>Quellen</h3><ul>{w.quellen.map((q) => <li><a href={q.url} rel="nofollow noopener" target="_blank">{q.text}</a></li>)}</ul></>}
+    <Verwandte themen={w.themen} pfad={pfad} />
+    <p class="klein">{seite.name} · Ergebnisse sind Rechenbeispiele auf Basis der genannten Annahmen.</p>
+  </div></article>
+</Basis>

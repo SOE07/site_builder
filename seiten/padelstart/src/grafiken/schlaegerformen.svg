@@ -1,0 +1,17 @@
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" font-family="inherit" font-size="15" fill="none" stroke="currentColor" stroke-width="2.4">
+  <g transform="translate(40 14)">
+    <circle cx="60" cy="62" r="52"/><rect x="52" y="114" width="16" height="58" rx="4" fill="currentColor" stroke="none"/>
+    <circle cx="60" cy="72" r="16" fill="var(--accent)" stroke="none" opacity=".75"/>
+    <text x="60" y="198" text-anchor="middle" fill="var(--ink)" stroke="none" font-weight="600">Rund</text>
+  </g>
+  <g transform="translate(180 14)">
+    <path d="M60 8c33 0 54 24 54 52 0 26-15 44-34 54H40C21 104 6 86 6 60 6 32 27 8 60 8Z"/><rect x="52" y="114" width="16" height="58" rx="4" fill="currentColor" stroke="none"/>
+    <circle cx="60" cy="54" r="16" fill="var(--accent)" stroke="none" opacity=".75"/>
+    <text x="60" y="198" text-anchor="middle" fill="var(--ink)" stroke="none" font-weight="600">Tropfen</text>
+  </g>
+  <g transform="translate(320 14)">
+    <path d="M60 6 112 50 92 114H28L8 50Z"/><rect x="52" y="114" width="16" height="58" rx="4" fill="currentColor" stroke="none"/>
+    <circle cx="60" cy="36" r="16" fill="var(--accent)" stroke="none" opacity=".75"/>
+    <text x="60" y="198" text-anchor="middle" fill="var(--ink)" stroke="none" font-weight="600">Diamant</text>
+  </g>
+</svg>

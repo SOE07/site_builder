@@ -1,0 +1,11 @@
+{
+  "titel": "Kosten pro Nutzung",
+  "metaTitel": "Kosten pro Nutzung berechnen | Vorlage",
+  "metaBeschreibung": "Demo-Werkzeug der Vorlage: rechnet den Kaufpreis auf die Zahl der Nutzungen um, damit der Build der Vorlage geprüft werden kann.",
+  "listenText": "Demo-Rechner der Vorlage",
+  "komponente": "kosten-pro-nutzung",
+  "einleitung": "Demo-Werkzeug der Vorlage.",
+  "methodik": "Kosten pro Nutzung = Kaufpreis ÷ (Nutzungen pro Woche × 52 × Jahre). Wartung und Wiederverkauf sind nicht berücksichtigt.",
+  "quellen": [],
+  "themen": ["demo"]
+}

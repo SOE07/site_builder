@@ -1,7 +1,7 @@
 ---
 name: nische-pruefen
 description: Prüft vor dem Bau, ob sich eine deutsche Affiliate-Nische lohnt (Konkurrenz in der deutschen SERP, Partnerprogramme und Provisionen, Risiko durch KI-Antworten, YMYL-Nähe) und gibt eine Punktzahl mit klarer Empfehlung. Nutzen, wenn eine neue Themenidee geprüft werden soll.
-argument-hint: "<Thema oder Nische>"
+argument-hint: "<Thema> oder mehrere Themen durch ; getrennt"
 allowed-tools: WebSearch WebFetch Read Write Grep Glob
 ---
 
@@ -21,6 +21,9 @@ Bewertet ein Thema, bevor Zeit in eine Seite fließt. Ergebnis ist ein Bericht m
 5. **Machbarkeit.** Gibt es genug Produktdaten mit prüfbaren Quellen? Können wir ohne eigene Tests ehrlich beraten (nach `CLAUDE.md`)? Gibt es mindestens 3–5 relevante Produkte mit Partnerlink?
 6. **Punktzahl (0–100):** kaufnahes Suchpotenzial 20, Schwäche der Konkurrenz 20, Provision und Programme 20, geringes KI-Risiko 15, YMYL-Abstand 15, Machbarkeit ohne Eigentest 10. Jede Teilnote mit einem Satz Begründung und Quelle.
 7. **Empfehlung:** ab 70 Go, 50–69 Bedingt (mit Bedingungen), unter 50 oder YMYL No-Go. Nenne Namensvorschlag (Kurzname für `seiten/<name>/`) und die ersten drei Artikelideen.
+
+## Stapel: mehrere Themen auf einmal
+Werden mehrere Themen übergeben (durch `;` getrennt), läuft der Ablauf je Thema (gern parallel mit dem Agent `rechercheur`), jedes Thema bekommt seinen Bericht. Zusätzlich entsteht `recherche/nischen-ranking-<datum>.md` mit einer Rangliste (Thema · Punktzahl · Empfehlung · größtes Risiko · Kurzname-Vorschlag). Themen, die einer bestehenden Seite in `seiten/` zu nahe kommen, werden markiert.
 
 ## Ausgabeformat
 Markdown-Bericht mit: Kurzfazit (Empfehlung und Punktzahl) · YMYL-Prüfung · SERP-Tabelle (Suchanfrage, Top-Treffer, Einschätzung) · Partnerprogramme (Tabelle mit Quell-URL) · KI-Risiko · Machbarkeit · Punktetabelle · nächste Schritte. Jede Tatsache mit Quell-URL und Abrufdatum.

@@ -1,0 +1,12 @@
+---
+import { verwandte } from '../lib/inhalt';
+import { inline } from '../lib/text';
+interface Props { themen: readonly string[]; pfad: string; }
+const liste = await verwandte(Astro.props.themen, Astro.props.pfad);
+---
+{liste.length > 0 && (
+  <nav class="verwandte" aria-labelledby="verwandte-titel">
+    <h2 id="verwandte-titel">Passend dazu</h2>
+    <ul>{liste.map((x) => <li><a href={x.pfad}><span class="klein">{x.typ}{x.hub ? ' · Überblick' : ''}</span><strong set:html={inline(x.titel)} /></a>{x.text && <span class="klein">{x.text}</span>}</li>)}</ul>
+  </nav>
+)}

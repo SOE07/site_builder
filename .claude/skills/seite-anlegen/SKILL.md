@@ -17,13 +17,15 @@ allowed-tools: Read Write Edit Bash(node scripts/*) Bash(npm *) Bash(git checkou
 1. Branch anlegen: `seite/<name>/anlegen` (siehe `CLAUDE.md`).
 2. `node scripts/neue-seite.mjs <name> "<Anzeigename>" --domain <url> --anrede <du|Sie>` ausführen. Das Skript kopiert `vorlage/` (ohne Demo-Inhalte), erzeugt ein Theme aus Farben, Schriftpaar und Layout-Varianten und legt leere Pflichtseiten an. Es würfelt neu, wenn das Theme einer anderen Seite zu ähnlich ist.
 3. **Eigenes Design für die Nische entwerfen.** Öffne `seiten/<name>/src/theme/theme.css` und `theme.json` und passe an: Farbwelt zur Nische (nicht die der anderen Seiten), Überschriften-Stil, Tabellen- und Kartenlook, Kopfbereich. Das gesamte Design steckt in dieser Datei plus `theme.json`. Keine Fremd-Schriften einbinden; neue Schriften nur als `@fontsource/*`-Pakete (`npm install`).
+3b. **Stimme festlegen:** `seiten/<name>/stimme.md` ausfüllen (Persona, Zielgruppe, Ton, eigene Wendungen und Gliederungsmuster, Tabus, Beispielsätze). Sie muss sich hörbar von den `stimme.md` aller anderen Seiten unterscheiden; vorher alle lesen.
 4. **Pflichtseiten füllen**: Impressum, Datenschutz, Werbehinweis und Über uns stehen in `src/content/recht.json` und `ueber-uns.json`. Werbehinweis-Text und „Über uns“ in eigenen Worten für diese Seite formulieren (keine Kopie aus anderen Seiten). Persönliche Angaben (Name, Anschrift, E-Mail, Programm) bleiben als `[Platzhalter]`, bis der Betreiber sie liefert. Nichts erfinden. Die Datenschutzerklärung nicht „frei erfinden“: Platzhalter lassen und auf einen Generator verweisen, siehe `wissen/recht-de.md`.
 5. `cd seiten/<name> && npm install && npm run build` ausführen und `node scripts/theme-aehnlichkeit.mjs` im Repo-Root: keine Meldung „ZU ÄHNLICH“.
-6. `wissen/recht-de.md` und `wissen/partnerprogramme.md` um neue Erkenntnisse ergänzen (mit Datum).
-7. Committen (Hook baut und prüft), Pull Request gegen `main`.
+6. Prüfen, dass der Build `llms.txt`, `produkte.json` und die Markdown-Fassungen (`index.md`, …) im Ordner `dist/` erzeugt (Agent-First, siehe `CLAUDE.md`).
+7. `wissen/recht-de.md` und `wissen/partnerprogramme.md` um neue Erkenntnisse ergänzen (mit Datum).
+8. Committen (Hook baut und prüft), Pull Request gegen `main`.
 
 ## Ausgabeformat
-Kurze Zusammenfassung: Ordner, Theme-Merkmale (Schriften, Farben, Layout), offene Platzhalter, nächster Schritt (`keyword-plan`).
+Kurze Zusammenfassung: Ordner, Theme-Merkmale (Schriften, Farben, Layout), Stimme in einem Satz, offene Platzhalter, nächster Schritt (`fachwissen-aufbauen`, dann `themen-cluster`).
 
 ## Ablageort
 `seiten/<name>/` (eigenständiges Astro-Projekt, Base Directory beim Deployment = `seiten/<name>`).

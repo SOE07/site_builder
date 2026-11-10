@@ -25,3 +25,7 @@ Stand: 2026-11-07 · Konditionen ändern sich laufend und stehen hier **bewusst 
 ### Hinweise aus dem Padelstart-Testlauf · 2026-11-07
 - Der Amazon-Pflichtsatz („Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.“) gehört nur auf die Seite, wenn tatsächlich am Amazon-Programm teilgenommen wird; ohne Amazon-Links entfernen.
 - Vor dem Livegang je Händler klären: Gibt es ein Partnerprogramm, und erlauben die Bedingungen die `/go/`-Weiterleitung? Ergebnis hier eintragen.
+
+### Sub-IDs für die Klickauswertung · 2026-11-10
+- Die Fabrik hängt bei gesetztem `subidParam` an jede Weiterleitung `<seite>-<produkt>-<platz>` an. Den Parameternamen je Netzwerk aus den aktuellen Programmbedingungen bzw. der Netzwerk-Hilfe übernehmen (aus dem Wissensstand der Fabrik: Awin `clickref`, Amazon `ascsubtag`; **vor Nutzung prüfen** und hier mit Quelle bestätigen).
+- Manche Programme verbieten das Verändern ihrer Links; dann `subidParam` leer lassen.

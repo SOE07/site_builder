@@ -26,7 +26,7 @@ function kopiere(von, nach, rel = '') {
   fs.mkdirSync(nach, { recursive: true });
   for (const e of fs.readdirSync(von, { withFileTypes: true })) {
     const r = path.posix.join(rel, e.name);
-    if (AUS.has(e.name) || r === 'src/content' || r === 'src/theme') continue;
+    if (AUS.has(e.name) || ['src/content', 'src/theme', 'src/werkzeuge', 'src/grafiken'].includes(r)) continue;
     const v = path.join(von, e.name), n = path.join(nach, e.name);
     if (e.isDirectory()) kopiere(v, n, r); else fs.copyFileSync(v, n);
   }
@@ -48,7 +48,33 @@ for (const [datei, inhalt] of Object.entries(skeleton(name, anzeigename))) {
   const p = path.join(ziel, datei); fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, JSON.stringify(inhalt, null, 2) + '\n');
 }
-for (const d of ['src/content/produkte', 'src/content/ratgeber']) { fs.mkdirSync(path.join(ziel, d), { recursive: true }); fs.writeFileSync(path.join(ziel, d, '.gitkeep'), ''); }
+for (const d of ['src/content/produkte', 'src/content/ratgeber', 'src/content/werkzeuge', 'src/werkzeuge', 'src/grafiken', 'planung', 'wissen']) { fs.mkdirSync(path.join(ziel, d), { recursive: true }); fs.writeFileSync(path.join(ziel, d, '.gitkeep'), ''); }
+
+// Stimme der Seite (Pflicht vor dem Schreiben; Skill seite-anlegen füllt sie)
+fs.writeFileSync(path.join(ziel, 'stimme.md'), `# Stimme von ${anzeigename}
+
+Wird von \`seite-anlegen\` gefüllt und von \`autor\` vor jedem Text gelesen. Muss sich von allen anderen Seiten unterscheiden.
+
+## Persona und Haltung
+[Wer spricht? Welche Haltung? z. B. nüchterner Datenvergleicher, pragmatische Einsteigerhilfe]
+
+## Zielgruppe
+[Wer liest, mit welchem Vorwissen und welcher Sorge?]
+
+## Ton
+- Anrede: ${anrede}
+- [Satzlänge, Fachbegriffe ja/nein, Humor ja/nein]
+
+## Eigene Wendungen und Gliederungsmuster
+- [z. B. jede Empfehlung beginnt mit „Für wen“; Abschnitt „Die ehrliche Kurzfassung“]
+
+## Verboten auf dieser Seite
+- Floskeln wie „In der heutigen Zeit“, „Ultimativer Guide“, „Es kommt darauf an“ ohne Auflösung
+- [weitere seiteneigene Tabus]
+
+## Beispielsätze
+- [drei Sätze, die genau so klingen, wie die Seite klingen soll]
+`);
 
 // Konfiguration und Pakete
 const cfgP = path.join(ziel, 'seite.config.json');

@@ -1,0 +1,28 @@
+---
+// Padelstart: Was kostet ein Schläger pro Spiel? Rechnet nur mit den Eingaben, speichert nichts.
+---
+<form class="rechner" data-rechner="kosten-pro-spiel">
+  <label>Preis des Schlägers in € <input name="preis" type="number" min="0" step="1" value="75" inputmode="decimal" /></label>
+  <label>Spiele pro Woche <input name="spiele" type="number" min="0" step="0.5" value="1" inputmode="decimal" /></label>
+  <label>Wie viele Monate willst du ihn nutzen? (deine Annahme) <input name="monate" type="number" min="1" step="1" value="18" inputmode="numeric" /></label>
+  <label>Leihgebühr im Club pro Spiel in € (zum Vergleich, falls bekannt) <input name="leihe" type="number" min="0" step="0.5" value="" inputmode="decimal" /></label>
+  <output name="ergebnis" aria-live="polite"></output>
+</form>
+<noscript><p>Ohne JavaScript: Preis ÷ (Spiele pro Woche × 4,33 × Monate).</p></noscript>
+<script>
+  for (const f of document.querySelectorAll<HTMLFormElement>('form[data-rechner="kosten-pro-spiel"]')) {
+    const eur = (x: number) => x.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+    const rechne = () => {
+      const n = (k: string) => parseFloat((f.elements.namedItem(k) as HTMLInputElement).value.replace(',', '.'));
+      const spiele = (n('spiele') || 0) * 4.33 * (n('monate') || 0);
+      const o = f.elements.namedItem('ergebnis') as HTMLOutputElement;
+      if (!(spiele > 0)) { o.textContent = 'Bitte Spiele pro Woche und Monate eintragen.'; return; }
+      const proSpiel = (n('preis') || 0) / spiele;
+      let t = `≈ ${eur(proSpiel)} pro Spiel bei etwa ${Math.round(spiele)} Spielen.`;
+      const leihe = n('leihe');
+      if (leihe > 0) t += proSpiel < leihe ? ` Günstiger als Leihen (${eur(leihe)}) ab etwa ${Math.ceil((n('preis') || 0) / leihe)} Spielen.` : ` Leihen (${eur(leihe)}) ist bei deiner Spielzahl günstiger.`;
+      o.textContent = t;
+    };
+    f.addEventListener('input', rechne); f.addEventListener('submit', (e) => e.preventDefault()); rechne();
+  }
+</script>

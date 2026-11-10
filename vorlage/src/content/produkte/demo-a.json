@@ -25,5 +25,27 @@
     "Demo-Nachteil"
   ],
   "nichtKaufenWenn": "Demo-Bedingung.",
-  "finderBegruendung": "Demo-Begründung."
+  "finderBegruendung": "Demo-Begründung.",
+  "subidParam": "clickref",
+  "preisverlauf": [
+    {
+      "datum": "2025-12-01",
+      "preis": 12,
+      "haendler": "Demo-Shop",
+      "quelle_url": "https://example.com/demo"
+    },
+    {
+      "datum": "2026-01-01",
+      "preis": 10,
+      "haendler": "Demo-Shop",
+      "quelle_url": "https://example.com/demo"
+    }
+  ],
+  "kaeuferhinweise": [
+    {
+      "text": "Demo-Hinweis: Mehrere Käufer berichten sinngemäß, dass die Lieferung zwei Tage dauerte.",
+      "quelle_url": "https://example.com/forum",
+      "abgerufen_am": "2026-01-01"
+    }
+  ]
 }

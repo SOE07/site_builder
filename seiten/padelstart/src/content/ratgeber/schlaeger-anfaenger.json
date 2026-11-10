@@ -16,7 +16,9 @@
   "abschnitteVor": [
     {
       "titel": "Worauf es bei einem Anfänger-Schläger ankommt",
-      "text": "**Form.** Runde Schläger haben den Sweetspot in der Mitte und nahe am Griff. Das macht sie fehlerverzeihend und gut kontrollierbar. Tropfenformen sind der Allround-Kompromiss mit etwas mehr Power. Diamant-Schläger sind kopflastig und für Einsteiger zu anspruchsvoll.\n\n**Gewicht.** Hier widersprechen sich die Shops: Je nach Quelle werden 340–360 g, 350–365 g oder 360–375 g empfohlen. Unsere Faustregel: Frauen und leichtere Spieler 345–355 g, Männer 355–365 g. Hersteller geben oft ±10 g Toleranz an, zwei Exemplare desselben Modells können sich also spürbar unterscheiden.\n\n**Kern und Oberfläche.** Ein weicher Kern (Soft EVA oder Foam) und eine Glasfaser-Oberfläche dämpfen Vibrationen und schonen den Arm. Carbon ist steifer und gibt bei harten Schlägen mehr Kontrolle, verzeiht aber weniger.\n\n**Preis.** Gute Einsteiger-Schläger liegen bei 60–105 €. Weil viele Modelle dauerhaft reduziert sind, ist die UVP kein guter Maßstab."
+      "text": "**Form.** Runde Schläger haben den Sweetspot in der Mitte und nahe am Griff. Das macht sie fehlerverzeihend und gut kontrollierbar. Tropfenformen sind der Allround-Kompromiss mit etwas mehr Power. Diamant-Schläger sind kopflastig und für Einsteiger zu anspruchsvoll.\n\n**Gewicht.** Hier widersprechen sich die Shops: Je nach Quelle werden 340–360 g, 350–365 g oder 360–375 g empfohlen. Unsere Faustregel: Frauen und leichtere Spieler 345–355 g, Männer 355–365 g. Hersteller geben oft ±10 g Toleranz an, zwei Exemplare desselben Modells können sich also spürbar unterscheiden.\n\n**Kern und Oberfläche.** Ein weicher Kern (Soft EVA oder Foam) und eine Glasfaser-Oberfläche dämpfen Vibrationen und schonen den Arm. Carbon ist steifer und gibt bei harten Schlägen mehr Kontrolle, verzeiht aber weniger.\n\n**Preis.** Gute Einsteiger-Schläger liegen bei 60–105 €. Weil viele Modelle dauerhaft reduziert sind, ist die UVP kein guter Maßstab.",
+      "grafik": "schlaegerformen.svg",
+      "grafikText": "Schematischer Vergleich der drei Schlägerformen; der farbige Punkt zeigt grob die Lage des Sweetspots, wie sie im Text beschrieben ist (keine Maße)."
     }
   ],
   "produkte": [
@@ -28,11 +30,15 @@
   "abschnitteNach": [
     {
       "titel": "Die drei häufigsten Fehler beim ersten Schlägerkauf",
-      "text": "1. **Den Schläger der Profis kaufen.** Profi-Modelle sind hart, kopflastig und teuer. Sie bestrafen Fehltreffer und belasten den Ellbogen.\n2. **Nur nach Optik kaufen.** Farbe und Design sagen nichts über Form, Gewicht und Kern.\n3. **Zum billigsten No-Name-Set greifen.** Sets unter 40 € haben oft einen sehr harten Kern und halten nicht lange. Ein Markenschläger für 65 € ist die bessere Investition."
+      "text": "1. **Den Schläger der Profis kaufen.** Profi-Modelle sind hart, kopflastig und teuer. Sie bestrafen Fehltreffer und belasten den Ellbogen.\n2. **Nur nach Optik kaufen.** Farbe und Design sagen nichts über Form, Gewicht und Kern.\n3. **Zum billigsten No-Name-Set greifen.** Sets unter 40 € haben oft einen sehr harten Kern und halten nicht lange. Ein Markenschläger für 65 € ist die bessere Investition.",
+      "grafik": "",
+      "grafikText": ""
     },
     {
       "titel": "Was du außer dem Schläger brauchst",
-      "text": "Für den Start reichen Padel- oder Hallenschuhe mit Fischgrätprofil (keine Laufschuhe), eine Dose Bälle und ein Overgrip. Einen eigenen Ratgeber zum Starterset veröffentlichen wir in Kürze."
+      "text": "Für den Start reichen Padel- oder Hallenschuhe mit Fischgrätprofil (keine Laufschuhe), eine Dose Bälle und ein Overgrip. Einen eigenen Ratgeber zum Starterset veröffentlichen wir in Kürze.\n\nOb sich ein eigener Schläger für dich schon lohnt, rechnest du mit unserem [Kosten-pro-Spiel-Rechner](/werkzeuge/kosten-pro-spiel) aus.",
+      "grafik": "",
+      "grafikText": ""
     }
   ],
   "faq": [
@@ -55,5 +61,23 @@
   ],
   "autorName": "[Dein Name]",
   "autorBio": "[Zwei Sätze zu dir.]",
-  "produkteTitel": "Die vier Schläger im Überblick"
+  "produkteTitel": "Die vier Schläger im Überblick",
+  "themen": [
+    "einsteiger",
+    "schlaeger",
+    "kosten"
+  ],
+  "hub": true,
+  "diagramme": [
+    {
+      "feld": "Gewicht",
+      "titel": "Gewicht laut Quellen",
+      "einheit": "g"
+    },
+    {
+      "feld": "Preis",
+      "titel": "Preisspannen laut Quellen",
+      "einheit": "€"
+    }
+  ]
 }

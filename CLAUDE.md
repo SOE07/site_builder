@@ -47,11 +47,44 @@ liegen ausschließlich in `.claude/` dieses Repos. Geheimnisse werden nie commit
   an den Betreiber und sichtbarem Hinweis auf der Seite bearbeitet.
 - Strukturierte Daten ohne Review-Sterne. Selbst gehostete Schriften, kein Tracking.
 
+## Mehrwert statt Masse (Pflicht)
+- Vor jedem Artikel steht eine Mehrwert-These aus `serp-analyse` in `seiten/<name>/planung/serp/`:
+  Was bietet der Artikel, das keiner der Top-10-Treffer hat? Ohne These wird nicht geschrieben.
+- Fachaussagen stammen nur aus `seiten/<name>/wissen/fachwissen.md` (Primärquellen mit Abrufdatum,
+  Skill `fachwissen-aufbauen`). Was dort „offen“ ist, wird nicht behauptet.
+- Jede Seite hat eine eigene `stimme.md` (Persona, Ton, Tabus). Texte folgen ihr;
+  `scripts/text-aehnlichkeit.mjs` darf keine geteilten Textbausteine zwischen Seiten finden.
+- Information Gain kommt aus eigenen Daten und Werkzeugen: Datenabgleich zwischen Quellen,
+  Preisverlauf aus eigenen Abrufen (nur anhängen, nie ändern), Vergleichsdiagramme aus den Fakten,
+  eigene Werkzeuge mit offengelegter Methodik, eigene SVG-Grafiken statt fremder Bilder.
+- Käuferhinweise nur wiederkehrend, sinngemäß, mit Quelle und Abrufdatum; keine Zitate, keine
+  Namen, keine Übertreibung („mehrere Käufer berichten“, nicht „alle“).
+- Inhalte werden als Themen-Cluster geplant (Hub plus Spokes, `themen` pflegen), nicht als Einzelartikel.
+- Klicks werden nur über Sub-IDs der Partnernetzwerke ausgewertet (`subidParam`), nie mit eigenem
+  Tracking. Empfehlungen richten sich nach Eignung, nie nach Provision.
+
+## Agent-First (Pflicht für jede Seite)
+- KI-Agents sollen alles lesen können. Jede Seite liefert deshalb neben dem HTML: `/llms.txt`,
+  eine Markdown-Fassung jeder Seite (`/index.md`, `/ratgeber/<slug>.md`, `/ueber-uns.md`,
+  `/werbehinweis.md`, `/impressum.md`, `/datenschutz.md`) und `/produkte.json` mit allen Produkten,
+  Angaben, Quell-URLs, Prüfdaten, Widersprüchen und Vor- und Nachteilen. Die Dateien entstehen
+  aus denselben Inhalten (`src/lib/agent.ts`); sie werden nie von Hand gepflegt und nie entfernt.
+- Für Agents gelten dieselben Regeln wie für Menschen: Werbehinweis am Anfang jeder Markdown-Datei,
+  jeder `/go/`-Link mit „Werbelink“ im Linktext und `werbung: true` im JSON, keine Bewertungen,
+  keine Behauptung eigener Tests. `npm run check` prüft das im gebauten Ergebnis.
+- Crawler (auch KI-Crawler) werden nicht ausgesperrt; gesperrt sind nur `/go/`, `/keystatic/`, `/api/`.
+- Das Repo ist ebenfalls agent-first: alles liegt als Text, Markdown oder JSON vor, `AGENTS.md`
+  gibt die Orientierung. Neue Inhalte gehören in Dateien, nicht nur in Oberflächen.
+- Änderungen an `vorlage/` erreichen bestehende Seiten mit `node scripts/vorlage-sync.mjs <name>`
+  (Inhalte, Theme und Konfiguration der Seite bleiben unberührt).
+
 ## Arbeitsweise
 - Jede Aufgabe läuft auf einem eigenen Branch (`feature/…`, `seite/<name>/…`). Am Ende steht ein
   Pull Request gegen `main` mit kurzer Zusammenfassung. Nie direkt auf `main` arbeiten.
-- Reihenfolge je Seite: nische-pruefen → seite-anlegen → keyword-plan → produkte-recherchieren →
-  artikel-schreiben → qualitaet-pruefen. Preise später mit preise-aktualisieren.
+- Reihenfolge je Seite: nische-pruefen → seite-anlegen → fachwissen-aufbauen → themen-cluster →
+  produkte-recherchieren → kaeuferstimmen-sammeln → je Artikel serp-analyse → artikel-schreiben
+  (+ grafiken-erstellen, werkzeug-bauen) → qualitaet-pruefen. Alles in einem Lauf: `seite-komplett`.
+  Nach dem Livegang: betrieb-einrichten (preise-aktualisieren, performance-review).
 - Rollen: `rechercheur` sammelt Quellen, `autor` schreibt nur aus den vorhandenen Daten.
   `faktenpruefer`, `compliance` und `seo-pruefer` sind reine Leser und ändern nichts.
 - Neue Erkenntnisse zu Recht, Google-Richtlinien oder Partnerprogrammen kommen mit Datum und
@@ -66,8 +99,12 @@ liegen ausschließlich in `.claude/` dieses Repos. Geheimnisse werden nie commit
 - `npm run check` (Daten, Phrasen, Build, interne Links), `npm run check:release` (zusätzlich
   Platzhalter und Prüfdaten, strenger)
 - Neue Seite: `node scripts/neue-seite.mjs <name> "<Anzeigename>"` (macht der Skill `seite-anlegen`)
+- Vorlage in bestehende Seite übernehmen: `node scripts/vorlage-sync.mjs <name>`
+- Im Repo-Root: `node scripts/text-aehnlichkeit.mjs [--seite <name>]`, `node scripts/theme-aehnlichkeit.mjs`,
+  `node scripts/gsc-auswerten.mjs <name>`, `node scripts/netzwerk-auswerten.mjs <name>`
 
 ## Struktur
 `.claude/` Skills, Agents, Hooks, Settings · `vorlage/` Astro-Keystatic-Starter · `seiten/` fertige
-Seiten · `scripts/` Werkzeuge · `wissen/` Recht, Google, Partnerprogramme · `recherche/` Berichte
+Seiten (je Seite: `stimme.md`, `wissen/fachwissen.md`, `planung/`, `src/werkzeuge/`, `src/grafiken/`; `daten/` für
+Exporte, nicht im Git) · `scripts/` Werkzeuge · `wissen/` Recht, Google, Partnerprogramme · `recherche/` Berichte
 von nische-pruefen · `referenz/` Beispielmaterial (Padelstart).
