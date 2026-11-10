@@ -13,7 +13,9 @@
   "abschnitteVor": [
     {
       "titel": "Grundlagen",
-      "text": "Demo-Text.\n\n- Punkt 1\n- Punkt 2"
+      "text": "Demo-Text.\n\n- Punkt 1\n- Punkt 2",
+      "grafik": "",
+      "grafikText": ""
     }
   ],
   "produkteTitel": "Die Demo-Produkte im Überblick",
@@ -29,5 +31,16 @@
     }
   ],
   "autorName": "Demo-Autor",
-  "autorBio": "Demo-Bio."
+  "autorBio": "Demo-Bio.",
+  "themen": [
+    "demo"
+  ],
+  "hub": true,
+  "diagramme": [
+    {
+      "feld": "Preis",
+      "titel": "Preise im Vergleich",
+      "einheit": "€"
+    }
+  ]
 }

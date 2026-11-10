@@ -1,0 +1,12 @@
+---
+// Redaktioneller Abschnitt mit optionaler eigener SVG-Grafik aus src/grafiken/
+import { inline, richtext } from '../lib/text';
+interface Props { a: { titel: string; text: string; grafik?: string; grafikText?: string }; }
+const { a } = Astro.props;
+const grafiken = import.meta.glob('../grafiken/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const svg = a.grafik ? grafiken[`../grafiken/${a.grafik}`] : undefined;
+if (a.grafik && !svg) throw new Error(`Grafik src/grafiken/${a.grafik} fehlt (Abschnitt „${a.titel}“).`);
+---
+<h2 set:html={inline(a.titel)} />
+<Fragment set:html={richtext(a.text)} />
+{svg && <figure class="grafik"><div role="img" aria-label={a.grafikText || a.titel} set:html={svg} />{a.grafikText && <figcaption>{a.grafikText}</figcaption>}</figure>}

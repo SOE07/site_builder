@@ -27,6 +27,20 @@ const paare = (label: string, a: string, b: string) =>
     { label, itemLabel: (p) => p.fields.titel.value || 'Neuer Eintrag' },
   );
 
+const abschnitte = (label: string) =>
+  fields.array(
+    fields.object({
+      titel: fields.text({ label: 'Überschrift' }),
+      text: fields.text({ label: 'Text', multiline: true }),
+      grafik: fields.text({ label: 'Grafik (optional): Dateiname in src/grafiken/, z. B. formen.svg' }),
+      grafikText: fields.text({ label: 'Grafik: Beschreibung (Alternativtext und Bildunterschrift)' }),
+    }),
+    { label, itemLabel: (p) => p.fields.titel.value || 'Neuer Abschnitt' },
+  );
+
+const themen = () =>
+  fields.array(fields.text({ label: 'Thema' }), { label: 'Themen-Cluster (gleiche Themen werden untereinander verlinkt)', itemLabel: (p) => p.value || 'Thema' });
+
 export default config({
   storage,
   ui: { brand: { name: cfg.anzeigename } },
@@ -125,6 +139,7 @@ export default config({
         geeignetFuer: fields.text({ label: 'Am besten für' }),
         affiliateUrl: fields.text({ label: 'Ziel-Link (Affiliate-Link, läuft über /go/<slug>)' }),
         partnerprogramm: fields.text({ label: 'Partnerprogramm (z. B. Awin, Amazon)' }),
+        subidParam: fields.text({ label: 'Sub-ID-Parameter des Netzwerks (z. B. clickref bei Awin, ascsubtag bei Amazon; leer = keiner)' }),
         symbolSvg: fields.text({ label: 'Symbol als Inline-SVG (optional, selbst erstellt)', multiline: true }),
         fakten: fields.array(
           fields.object({
@@ -143,6 +158,40 @@ export default config({
         contra: liste('Das spricht dagegen', 'Punkt'),
         nichtKaufenWenn: fields.text({ label: '„Nicht kaufen, wenn …“' }),
         finderBegruendung: fields.text({ label: 'Begründung im Finder', multiline: true }),
+        preisverlauf: fields.array(
+          fields.object({
+            datum: fields.date({ label: 'Datum des Abrufs' }),
+            preis: fields.number({ label: 'Preis in € (Zahl)' }),
+            haendler: fields.text({ label: 'Händler' }),
+            quelle_url: fields.text({ label: 'Quell-URL' }),
+          }),
+          { label: 'Preisverlauf (wird von preise-aktualisieren ergänzt, nie überschrieben)', itemLabel: (p) => `${p.fields.datum.value ?? '?'}: ${p.fields.preis.value ?? '?'} € (${p.fields.haendler.value})` },
+        ),
+        kaeuferhinweise: fields.array(
+          fields.object({
+            text: fields.text({ label: 'Hinweis sinngemäß zusammengefasst (kein Zitat, keine Namen)', multiline: true }),
+            quelle_url: fields.text({ label: 'Quell-URL (Forum, Shop-Fragen, Reddit …)' }),
+            abgerufen_am: fields.date({ label: 'Abgerufen am' }),
+          }),
+          { label: 'Was Käufer berichten (nur mit Quelle)', itemLabel: (p) => (p.fields.text.value || '').slice(0, 60) || 'Hinweis' },
+        ),
+      },
+    }),
+    werkzeuge: collection({
+      label: 'Werkzeuge und Rechner',
+      path: 'src/content/werkzeuge/*',
+      slugField: 'titel',
+      format: 'json',
+      schema: {
+        titel: fields.slug({ name: { label: 'Titel' } }),
+        metaTitel: fields.text({ label: 'Browser-Titel (SEO)' }),
+        metaBeschreibung: fields.text({ label: 'Meta-Beschreibung (SEO)', multiline: true }),
+        listenText: fields.text({ label: 'Kurztext in Listen' }),
+        komponente: fields.text({ label: 'Komponente: Dateiname in src/werkzeuge/ ohne .astro' }),
+        einleitung: fields.text({ label: 'Einleitung', multiline: true }),
+        methodik: fields.text({ label: 'So rechnet das Werkzeug (Formel, Annahmen, Grenzen)', multiline: true }),
+        quellen: fields.array(fields.object({ text: fields.text({ label: 'Beschreibung' }), url: fields.text({ label: 'URL' }) }), { label: 'Quellen für Annahmen', itemLabel: (p) => p.fields.text.value || 'Quelle' }),
+        themen: themen(),
       },
     }),
     ratgeber: collection({
@@ -160,13 +209,23 @@ export default config({
         kurzeAntwort: fields.text({ label: 'Kurze Antwort', multiline: true }),
         schnellwahlTitel: fields.text({ label: 'Überschrift Schnellauswahl' }),
         schnellwahl: liste('Schnellauswahl', 'Punkt'),
-        abschnitteVor: paare('Abschnitte vor den Produkten', 'Überschrift', 'Text'),
+        themen: themen(),
+        hub: fields.checkbox({ label: 'Hub-Artikel dieses Themen-Clusters (wird zuerst verlinkt)', defaultValue: false }),
+        diagramme: fields.array(
+          fields.object({
+            feld: fields.text({ label: 'Angabe aus den Produkt-Fakten (z. B. Gewicht, Preis)' }),
+            titel: fields.text({ label: 'Titel des Diagramms' }),
+            einheit: fields.text({ label: 'Einheit (z. B. g, €)' }),
+          }),
+          { label: 'Vergleichsdiagramme (werden aus den Fakten erzeugt)', itemLabel: (p) => p.fields.titel.value || p.fields.feld.value || 'Diagramm' },
+        ),
+        abschnitteVor: abschnitte('Abschnitte vor den Produkten'),
         produkteTitel: fields.text({ label: 'Überschrift über den Produkten (z. B. „Die vier Schläger im Überblick“)' }),
         produkte: fields.array(fields.relationship({ label: 'Produkt', collection: 'produkte' }), {
           label: 'Produkte in diesem Ratgeber (Reihenfolge)',
           itemLabel: (p) => p.value ?? 'Produkt',
         }),
-        abschnitteNach: paare('Abschnitte nach den Produkten', 'Überschrift', 'Text'),
+        abschnitteNach: abschnitte('Abschnitte nach den Produkten'),
         faq: fields.array(
           fields.object({ q: fields.text({ label: 'Frage' }), a: fields.text({ label: 'Antwort', multiline: true }) }),
           { label: 'Häufige Fragen', itemLabel: (p) => p.fields.q.value || 'Frage' },

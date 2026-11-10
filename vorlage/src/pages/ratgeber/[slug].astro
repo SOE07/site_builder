@@ -2,6 +2,11 @@
 import Basis from '../../layouts/Basis.astro';
 import ProduktTabelle from '../../components/ProduktTabelle.astro';
 import AffiliateLink from '../../components/AffiliateLink.astro';
+import Abschnitt from '../../components/Abschnitt.astro';
+import Diagramm from '../../components/Diagramm.astro';
+import Preisverlauf from '../../components/Preisverlauf.astro';
+import Kaeuferhinweise from '../../components/Kaeuferhinweise.astro';
+import Verwandte from '../../components/Verwandte.astro';
 import { ladeSeite, ladeProdukte, ladeRatgeber, erfahrung } from '../../lib/inhalt';
 import { inline, richtext, datumDe, nurText } from '../../lib/text';
 import { artikel, brotkrumen, liste } from '../../lib/schema';
@@ -15,6 +20,7 @@ const seite = await ladeSeite();
 const alleProdukte = await ladeProdukte();
 const produkte = r.produkte.map((s) => alleProdukte.find((p) => p.slug === s)).filter((p): p is NonNullable<typeof p> => Boolean(p));
 const pfad = `/ratgeber/${r.slug}`;
+const alleWidersprueche = produkte.flatMap((p) => p.fakten.filter((f) => f.widerspruch).map((f) => ({ slug: p.slug, name: p.name, feld: f.feld, text: f.widerspruch })));
 ---
 <Basis titel={r.metaTitel} beschreibung={r.metaBeschreibung} pfad={pfad} md={`${pfad}.md`}
   schema={[
@@ -29,13 +35,14 @@ const pfad = `/ratgeber/${r.slug}`;
         <p class="byline">{nurText(r.autorZeile)}{r.aktualisiert ? ` Zuletzt aktualisiert: ${datumDe(r.aktualisiert)}.` : ''}</p>
         <div class="answer" set:html={richtext(r.kurzeAntwort)} />
       </div>
-      <ProduktTabelle produkte={produkte} spalten={seite.tabellenSpalten} />
+      <ProduktTabelle produkte={produkte} spalten={seite.tabellenSpalten} platz="tabelle" />
       <div class="prose">
+        {r.diagramme.map((d) => <Diagramm produkte={produkte} feld={d.feld} titel={d.titel} einheit={d.einheit} />)}
         {r.schnellwahl.length > 0 && <>
           <h2 set:html={inline(r.schnellwahlTitel)} />
           <ol class="quick">{r.schnellwahl.map((q) => <li set:html={inline(q)} />)}</ol>
         </>}
-        {r.abschnitteVor.map((a) => <><h2 set:html={inline(a.titel)} /><Fragment set:html={richtext(a.text)} /></>)}
+        {r.abschnitteVor.map((a) => <Abschnitt a={a} />)}
         {produkte.length > 0 && <h2 id="produkte" set:html={inline(r.produkteTitel || 'Die Empfehlungen im Detail')} />}
         {produkte.map((p) => {
           const ex = erfahrung(p.slug);
@@ -54,6 +61,8 @@ const pfad = `/ratgeber/${r.slug}`;
               {p.nichtKaufenWenn && <p class="skip"><strong>Nicht kaufen, wenn</strong> <span set:html={inline(p.nichtKaufenWenn)} /></p>}
               {p.hinweis && <Fragment set:html={richtext(p.hinweis)} />}
               {widersprueche.map((f) => <p class="widerspruch"><strong>Abweichende Angaben ({f.feld}):</strong> {f.widerspruch}</p>)}
+              <Preisverlauf produkt={p} />
+              <Kaeuferhinweise produkt={p} />
               {ex && <div class="erfahrung"><h4>Eigene Erfahrung</h4><Fragment set:html={richtext(ex)} /></div>}
               <details class="quellen">
                 <summary>Datenquellen zu {p.name}</summary>
@@ -66,12 +75,18 @@ const pfad = `/ratgeber/${r.slug}`;
                   </tbody>
                 </table>
               </details>
-              <div class="buy"><AffiliateLink slug={p.slug} /></div>
+              <div class="buy"><AffiliateLink slug={p.slug} platz="artikel" /></div>
             </section>
           );
         })}
-        {r.abschnitteNach.map((a) => <><h2 set:html={inline(a.titel)} /><Fragment set:html={richtext(a.text)} /></>)}
+        {alleWidersprueche.length > 0 && <>
+          <h2 id="datenabgleich">Datenabgleich: Wo sich die Quellen widersprechen</h2>
+          <div class="table-scroll"><table class="abgleich"><thead><tr><th scope="col">Produkt</th><th scope="col">Angabe</th><th scope="col">Was die Quellen sagen</th></tr></thead>
+          <tbody>{alleWidersprueche.map((w) => <tr><td><a href={`#p-${w.slug}`}>{w.name}</a></td><td>{w.feld}</td><td>{w.text}</td></tr>)}</tbody></table></div>
+        </>}
+        {r.abschnitteNach.map((a) => <Abschnitt a={a} />)}
         {r.faq.length > 0 && <><h2>Häufige Fragen</h2><dl class="faq">{r.faq.map((f) => <><dt set:html={inline(f.q)} /><dd set:html={inline(f.a)} /></>)}</dl></>}
+        <Verwandte themen={r.themen} pfad={pfad} />
         <div class="author">
           <div class="avatar" aria-hidden="true"></div>
           <div><strong>{r.autorName}</strong><br /><span class="byline" set:html={inline(r.autorBio)} /> <a href="/ueber-uns">So entstehen unsere Empfehlungen</a></div>

@@ -1,0 +1,34 @@
+---
+// Vergleichsdiagramm aus Produkt-Fakten (eigene Grafik, keine fremden Bilder). Spannen werden als Balken von–bis gezeigt.
+import { fakt, zahlen, type Produkt } from '../lib/inhalt';
+import { datumDe } from '../lib/text';
+interface Props { produkte: Produkt[]; feld: string; titel: string; einheit: string; }
+const { produkte, feld, titel, einheit } = Astro.props;
+const zeilen = produkte.map((p) => { const f = fakt(p, feld); return { name: p.name, f, z: f ? zahlen(f.wert) : null }; }).filter((x) => x.z);
+const max = Math.max(...zeilen.map((x) => x.z!.bis), 0);
+const minWert = Math.min(...zeilen.map((x) => x.z!.von));
+const start = minWert > max * 0.5 ? Math.floor((minWert * 0.85) / 10) * 10 : 0; // Achse ab sinnvollem Wert, offen ausgewiesen
+const B = 640, links = 210, rechts = 96, hz = 34;
+const x = (v: number) => links + ((v - start) / (max - start || 1)) * (B - links - rechts);
+const zahlDe = (n: number) => n.toLocaleString('de-DE');
+const kurz = (z: { von: number; bis: number }) => (z.von === z.bis ? zahlDe(z.von) : `${zahlDe(z.von)}–${zahlDe(z.bis)}`) + (einheit ? ` ${einheit}` : '');
+const daten = zeilen.map((r) => r.f!.geprueft_am).filter(Boolean).sort();
+---
+{zeilen.length > 1 && (
+  <figure class="diagramm">
+    <svg viewBox={`0 0 ${B} ${zeilen.length * hz + 30}`} role="img" aria-labelledby={`d-${feld}`}>
+      <title id={`d-${feld}`}>{titel}: {zeilen.map((r) => `${r.name} ${r.f!.wert}`).join(', ')}</title>
+      {zeilen.map((r, i) => (
+        <g transform={`translate(0 ${i * hz + 6})`}>
+          <text x={links - 10} y="17" text-anchor="end" class="d-label">{r.name}</text>
+          <rect x={x(r.z!.von) - (r.z!.von === r.z!.bis ? 3 : 0)} y="5" width={Math.max(6, x(r.z!.bis) - x(r.z!.von))} height="16" rx="3" class="d-balken" />
+          <text x={x(r.z!.bis) + 8} y="17" class="d-wert">{kurz(r.z!)}</text>
+        </g>
+      ))}
+      <line x1={links} x2={B - rechts} y1={zeilen.length * hz + 10} y2={zeilen.length * hz + 10} class="d-achse" />
+      <text x={links} y={zeilen.length * hz + 26} class="d-achse-text">{start} {einheit}</text>
+      <text x={B - rechts} y={zeilen.length * hz + 26} text-anchor="end" class="d-achse-text">{max} {einheit}</text>
+    </svg>
+    <figcaption>{titel}. Werte laut den angegebenen Quellen{daten.length ? `, geprüft bis ${datumDe(daten[daten.length - 1])}` : ', Prüfdatum offen'}{start > 0 ? `; Achse beginnt bei ${start} ${einheit}` : ''}.</figcaption>
+  </figure>
+)}

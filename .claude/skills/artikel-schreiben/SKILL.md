@@ -14,9 +14,12 @@ Die Aufgabe wird vom Subagenten `autor` ausgeführt; Fakten prüft danach `fakte
 - Optional: `erfahrung/*.md` des Betreibers.
 
 ## Arbeitsschritte
-1. Lies `CLAUDE.md`, den Keyword-Plan und alle benötigten Produktdatensätze. Schreibe **nur aus diesen Daten**. Fehlt eine Angabe, geht es zurück zu `produkte-recherchieren`.
+0. **Pflicht-Vorarbeiten, sonst Abbruch:** `planung/serp/<artikel-slug>.md` mit Mehrwert-These (Skill `serp-analyse`), `wissen/fachwissen.md` (Skill `fachwissen-aufbauen`), ausgefüllte `stimme.md`. Fehlt eines, zuerst den Skill ausführen.
+1. Lies `CLAUDE.md`, `stimme.md`, `wissen/fachwissen.md`, die Mehrwert-These, `planung/kaeuferfragen.md`, den Cluster bzw. Keyword-Plan und alle benötigten Produktdatensätze. Schreibe **nur aus diesen Daten**. Fehlt eine Angabe, geht es zurück zu `produkte-recherchieren`.
 2. Aufbau: Titel mit Haupt-Keyword · kurze Antwort (Empfehlung nach Nutzertyp) · Vergleichstabelle (kommt aus den Produktdaten) · Schnellauswahl · Grundlagen („Worauf achten“) · je Produkt: Beschreibung, Dafür/Dagegen, **„Nicht kaufen, wenn …“**, Widersprüche offen benennen, Datenquellen · häufige Fehler · FAQ aus „Ähnliche Fragen“.
-3. Stil: eigene Formulierungen, keine Textbausteine aus anderen Seiten, keine Floskeln. Du/Sie wie in `seite.config.json`. Konkret statt blumig. Empfehlungen nach Spielertyp oder Anwendung, nicht als Rangliste mit Noten.
+2b. **Mehrwert einlösen:** Jeder Baustein der These muss im Artikel stehen (z. B. `diagramme`, Datenabgleich, Werkzeug-Link, Käuferhinweise). Themen (`themen`) und ggf. `hub` setzen, damit „Passend dazu“ verlinkt.
+2c. Fachaussagen (Kriterien, Wirkungen, Begriffe) nur aus `wissen/fachwissen.md`; was dort „offen“ ist, bleibt offen.
+3. Stil: Stimme aus `stimme.md`, eigene Formulierungen, keine Textbausteine aus anderen Seiten, keine Floskeln. Du/Sie wie in `seite.config.json`. Konkret statt blumig. Empfehlungen nach Spielertyp oder Anwendung, nicht als Rangliste mit Noten.
 4. Verboten (Hook prüft): „im Test“, „getestet“, „Testsieger“, „wir haben gespielt“, „unser Test“, Sterne, Noten, erfundene Zitate und Nutzerstimmen. Aussagen über die Arbeitsweise nur, wenn sie stimmen. Eigene Erfahrung nur aus `erfahrung/<slug>.md`.
 5. Wertende Aussagen („besonders armschonend“) nur, wenn eine Quelle sie trägt; sonst als Herstellerangabe formulieren („laut Hersteller …“) oder streichen.
 6. Affiliate-Links ausschließlich über `/go/<slug>` (Komponente `AffiliateLink`). Keine Ziel-URLs im Fließtext.

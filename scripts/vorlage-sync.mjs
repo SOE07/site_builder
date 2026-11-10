@@ -13,9 +13,9 @@ if (!name || name === 'vorlage' || !fs.existsSync(path.join(wurzel, 'seiten', na
   console.error('Aufruf: node scripts/vorlage-sync.mjs <seitenname> [--dry]'); process.exit(1);
 }
 const von = path.join(wurzel, 'vorlage'); const nach = path.join(wurzel, 'seiten', name);
-const AUS_DIR = new Set(['node_modules', 'dist', '.astro', '.netlify', '.vercel', 'erfahrung', 'planung', 'public']);
-const AUS_REL = ['src/content', 'src/theme'];
-const AUS_DATEI = new Set(['package.json', 'package-lock.json', 'seite.config.json', '.env']);
+const AUS_DIR = new Set(['node_modules', 'dist', '.astro', '.netlify', '.vercel', 'erfahrung', 'planung', 'public', 'wissen', 'daten']);
+const AUS_REL = ['src/content', 'src/theme', 'src/werkzeuge', 'src/grafiken'];
+const AUS_DATEI = new Set(['package.json', 'package-lock.json', 'seite.config.json', '.env', 'stimme.md']);
 const geaendert = [];
 (function kopiere(rel) {
   for (const e of fs.readdirSync(path.join(von, rel), { withFileTypes: true })) {

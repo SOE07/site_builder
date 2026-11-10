@@ -1,7 +1,7 @@
 ---
 import '../theme/theme.css';
 import theme from '../theme/theme.json';
-import { ladeSeite, ladeRecht, url, seiteConfig } from '../lib/inhalt';
+import { ladeSeite, ladeRecht, ladeWerkzeuge, url, seiteConfig } from '../lib/inhalt';
 import { inline, nurText } from '../lib/text';
 import { json, webseite } from '../lib/schema';
 
@@ -12,6 +12,7 @@ const kanonisch = url(pfad);
 const nav = [
   { href: '/', text: 'Start', aktiv: pfad === '/' },
   { href: '/#ratgeber', text: 'Ratgeber', aktiv: pfad.startsWith('/ratgeber') },
+  ...((await ladeWerkzeuge()).length ? [{ href: '/#werkzeuge', text: 'Werkzeuge', aktiv: pfad.startsWith('/werkzeuge') }] : []),
   { href: '/ueber-uns', text: 'Über uns', aktiv: pfad === '/ueber-uns' },
 ];
 ---

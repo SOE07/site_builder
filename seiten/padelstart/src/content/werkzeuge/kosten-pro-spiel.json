@@ -1,0 +1,11 @@
+{
+  "titel": "Was kostet dein Padelschläger pro Spiel?",
+  "metaTitel": "Padelschläger: Kosten pro Spiel berechnen | Padelstart",
+  "metaBeschreibung": "Rechne aus, was dich ein Padelschläger pro Spiel kostet und ab wie vielen Spielen sich der Kauf gegenüber dem Leihschläger im Club lohnt.",
+  "listenText": "Kauf oder Leihschläger? In drei Eingaben gerechnet",
+  "komponente": "kosten-pro-spiel",
+  "einleitung": "Lohnt sich ein eigener Schläger, wenn du nur ab und zu spielst? Trag ein, was du zahlen willst und wie oft du spielst. Der Rechner zeigt die Kosten pro Spiel und, wenn du die Leihgebühr deines Clubs kennst, ab wann sich der Kauf rechnet.",
+  "methodik": "Kosten pro Spiel = Preis ÷ (Spiele pro Woche × 4,33 Wochen pro Monat × Nutzungsmonate).\n\nAb wann sich der Kauf lohnt: Preis ÷ Leihgebühr pro Spiel, aufgerundet.\n\n**Annahmen und Grenzen:** Die Nutzungsdauer ist deine eigene Annahme; wie lange ein Schläger hält, hängt von Spielhäufigkeit, Spielweise und Pflege ab und ist hier nicht belegt. Griffband, Schutzband und Bälle sind nicht eingerechnet. Leihgebühren unterscheiden sich je Club.",
+  "quellen": [],
+  "themen": ["einsteiger", "kosten"]
+}

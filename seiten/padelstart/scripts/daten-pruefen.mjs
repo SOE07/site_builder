@@ -25,6 +25,20 @@ for (const f of dateien) {
     else if (k.geprueft_am > heute) fehler.push(`${wo}: Prüfdatum liegt in der Zukunft`);
     else if (streng && (Date.parse(heute) - Date.parse(k.geprueft_am)) / 864e5 > 90) warnungen.push(`${wo}: Prüfdatum älter als 90 Tage (preise-aktualisieren)`);
   }
+  for (const v of p.preisverlauf || []) {
+    const wo = `${slug} / Preisverlauf ${v.datum || '?'}`;
+    if (!/^https?:\/\//.test(v.quelle_url || '')) fehler.push(`${wo}: Quell-URL fehlt`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v.datum || '')) fehler.push(`${wo}: Datum fehlt`);
+    else if (v.datum > heute) fehler.push(`${wo}: Datum liegt in der Zukunft`);
+    if (typeof v.preis !== 'number' || !(v.preis > 0)) fehler.push(`${wo}: Preis ist keine positive Zahl`);
+  }
+  for (const k of p.kaeuferhinweise || []) {
+    const wo = `${slug} / Käuferhinweis „${(k.text || '').slice(0, 40)}“`;
+    if (!/^https?:\/\//.test(k.quelle_url || '')) fehler.push(`${wo}: Quell-URL fehlt`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(k.abgerufen_am || '')) (streng ? fehler : warnungen).push(`${wo}: Abrufdatum fehlt`);
+    if (/["„“»«]/.test(k.text || '')) fehler.push(`${wo}: enthält Anführungszeichen; Käuferhinweise sinngemäß zusammenfassen, nicht zitieren`);
+  }
+  if (p.subidParam && !/^[a-zA-Z0-9_]+$/.test(p.subidParam)) fehler.push(`${slug}: subidParam ist kein gültiger Parametername`);
   if (!p.affiliateUrl) warnungen.push(`${slug}: kein Affiliate-/Ziel-Link hinterlegt`);
   else if (!/^https?:\/\//.test(p.affiliateUrl)) fehler.push(`${slug}: affiliateUrl ist keine http(s)-URL`);
 }

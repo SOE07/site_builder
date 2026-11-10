@@ -24,7 +24,7 @@ const daten = {
   <div id="finder-buehne"></div>
   <script type="application/json" id="finder-daten" set:html={JSON.stringify(daten).replace(/</g, '\\u003c')} />
   <template id="finder-links">
-    {produkte.map((p) => <div data-slug={p.slug}><AffiliateLink slug={p.slug} label="Preis prüfen" /></div>)}
+    {produkte.map((p) => <div data-slug={p.slug}><AffiliateLink slug={p.slug} label="Preis prüfen" platz="finder" /></div>)}
   </template>
 </section>
 <noscript><p class="klein">Der Produkt-Finder braucht JavaScript. Alle Empfehlungen findest du in der Tabelle darunter.</p></noscript>

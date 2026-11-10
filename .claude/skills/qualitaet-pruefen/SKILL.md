@@ -11,7 +11,7 @@ allowed-tools: Read Write Edit Grep Glob Bash(npm run *) Bash(node scripts/*) Ag
 - `<seitenname>` (Ordner in `seiten/`).
 
 ## Arbeitsschritte
-1. **Automatik:** im Seitenordner `npm run check:release` ausführen (strenge Datenprüfung inkl. Platzhalter und Prüfdaten, Phrasen-Prüfung, Build, Werbekennzeichnung im HTML, Link-Check intern). Im Repo-Root `node scripts/theme-aehnlichkeit.mjs`. Optional `npm run links:extern` (externe und Partner-Ziele; braucht Internet).
+1. **Automatik:** im Seitenordner `npm run check:release` ausführen (strenge Datenprüfung inkl. Platzhalter und Prüfdaten, Phrasen-Prüfung, Build, Werbekennzeichnung im HTML, Link-Check intern). Im Repo-Root `node scripts/theme-aehnlichkeit.mjs` und `node scripts/text-aehnlichkeit.mjs --seite <name>` (keine Textbausteine anderer Seiten, keine Schablonen). Prüfen, dass jeder Ratgeber eine Mehrwert-These in `planung/serp/` hat und sie einlöst. Optional `npm run links:extern` (externe und Partner-Ziele; braucht Internet).
 2. **Agents parallel starten** (jeweils mit Seitenname):
    - `faktenpruefer`: jede Tatsachenaussage gegen Produktdaten und Quellen.
    - `compliance`: Impressum, Werbekennzeichnung, DSGVO, UWG, Googles Spam- und Qualitätsrichtlinien.

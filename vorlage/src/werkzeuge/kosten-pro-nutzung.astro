@@ -1,0 +1,20 @@
+---
+// Demo-Werkzeug der Vorlage (wird nicht in neue Seiten kopiert). Jede Seite baut eigene Werkzeuge mit dem Skill werkzeug-bauen.
+---
+<form class="rechner" data-rechner="kosten-pro-nutzung">
+  <label>Kaufpreis in € <input name="preis" type="number" min="0" step="1" value="80" inputmode="decimal" /></label>
+  <label>Nutzungen pro Woche <input name="proWoche" type="number" min="0" step="0.5" value="1" inputmode="decimal" /></label>
+  <label>Nutzungsdauer in Jahren <input name="jahre" type="number" min="0.5" step="0.5" value="2" inputmode="decimal" /></label>
+  <output name="ergebnis" aria-live="polite"></output>
+</form>
+<script>
+  for (const f of document.querySelectorAll<HTMLFormElement>('form[data-rechner="kosten-pro-nutzung"]')) {
+    const rechne = () => {
+      const n = (k: string) => parseFloat((f.elements.namedItem(k) as HTMLInputElement).value.replace(',', '.')) || 0;
+      const nutzungen = n('proWoche') * 52 * n('jahre');
+      const o = f.elements.namedItem('ergebnis') as HTMLOutputElement;
+      o.textContent = nutzungen > 0 ? `≈ ${(n('preis') / nutzungen).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })} pro Nutzung (${Math.round(nutzungen)} Nutzungen)` : 'Bitte Nutzungen eintragen.';
+    };
+    f.addEventListener('input', rechne); f.addEventListener('submit', (e) => e.preventDefault()); rechne();
+  }
+</script>

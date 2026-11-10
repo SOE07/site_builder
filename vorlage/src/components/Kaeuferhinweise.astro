@@ -1,0 +1,14 @@
+---
+import { datumDe } from '../lib/text';
+import type { Produkt } from '../lib/inhalt';
+interface Props { produkt: Produkt; }
+const h = Astro.props.produkt.kaeuferhinweise.filter((x) => x.text && /^https?:\/\//.test(x.quelle_url));
+const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
+---
+{h.length > 0 && (
+  <div class="kaeuferhinweise">
+    <h4>Was Käufer häufig berichten</h4>
+    <ul>{h.map((x) => <li>{x.text} <span class="klein">(<a href={x.quelle_url} rel="nofollow noopener" target="_blank">{host(x.quelle_url)}</a>{x.abgerufen_am ? `, abgerufen ${datumDe(x.abgerufen_am)}` : ''})</span></li>)}</ul>
+    <p class="klein">Sinngemäß zusammengefasst aus öffentlichen Käuferberichten. Keine eigenen Erfahrungen, keine wörtlichen Zitate.</p>
+  </div>
+)}
