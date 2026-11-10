@@ -14,7 +14,7 @@ const ratgeberFuer: Record<string, string> = {};
 for (const r of ratgeber) for (const s of r.produkte) if (s && !ratgeberFuer[s]) ratgeberFuer[s] = r.slug;
 const zeigeFinder = Boolean(finder?.aktiv && finder.fragen.length && produkte.length);
 ---
-<Basis titel={seite.metaTitel} beschreibung={seite.metaBeschreibung} pfad="/"
+<Basis titel={seite.metaTitel} beschreibung={seite.metaBeschreibung} pfad="/" md="/index.md"
   schema={[liste(produkte.map((p) => ({ name: p.name, pfad: ratgeberFuer[p.slug] ? `/ratgeber/${ratgeberFuer[p.slug]}#p-${p.slug}` : '/' })))]}>
   <div class="wrap hero" data-finder={zeigeFinder ? 'ja' : 'nein'}>
     <div class="hero-grid">

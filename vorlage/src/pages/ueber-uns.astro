@@ -4,7 +4,7 @@ import { ladeUeberUns } from '../lib/inhalt';
 import { inline, richtext, nurText } from '../lib/text';
 const b = await ladeUeberUns();
 ---
-<Basis titel={nurText(b.titel)} beschreibung={nurText(b.intro).slice(0, 160)} pfad="/ueber-uns">
+<Basis titel={nurText(b.titel)} beschreibung={nurText(b.intro).slice(0, 160)} pfad="/ueber-uns" md="/ueber-uns.md">
   <article class="page"><div class="wrap prose">
     <h1 set:html={inline(b.titel)} />
     <Fragment set:html={richtext(b.intro)} />

@@ -16,7 +16,7 @@ const alleProdukte = await ladeProdukte();
 const produkte = r.produkte.map((s) => alleProdukte.find((p) => p.slug === s)).filter((p): p is NonNullable<typeof p> => Boolean(p));
 const pfad = `/ratgeber/${r.slug}`;
 ---
-<Basis titel={r.metaTitel} beschreibung={r.metaBeschreibung} pfad={pfad}
+<Basis titel={r.metaTitel} beschreibung={r.metaBeschreibung} pfad={pfad} md={`${pfad}.md`}
   schema={[
     artikel({ titel: r.titel, beschreibung: r.metaBeschreibung, pfad, autor: r.autorName, datum: r.aktualisiert, seitenName: seite.name }),
     brotkrumen([{ name: 'Start', pfad: '/' }, { name: nurText(r.titel), pfad }]),

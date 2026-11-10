@@ -4,6 +4,6 @@ import { ladeRecht } from '../lib/inhalt';
 import { richtext } from '../lib/text';
 const r = await ladeRecht();
 ---
-<Basis titel="Datenschutzerklärung" beschreibung="Informationen zur Verarbeitung personenbezogener Daten auf dieser Seite." pfad="/datenschutz">
+<Basis titel="Datenschutzerklärung" beschreibung="Informationen zur Verarbeitung personenbezogener Daten auf dieser Seite." pfad="/datenschutz" md="/datenschutz.md">
   <article class="page"><div class="wrap prose"><h1>Datenschutzerklärung</h1><Fragment set:html={richtext(r.datenschutz)} /></div></article>
 </Basis>

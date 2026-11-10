@@ -3,7 +3,7 @@ import Basis from '../layouts/Basis.astro';
 import { ladeRecht } from '../lib/inhalt';
 const r = await ladeRecht();
 ---
-<Basis titel="Impressum" beschreibung="Impressum und Anbieterkennzeichnung dieser Seite nach § 5 DDG." pfad="/impressum">
+<Basis titel="Impressum" beschreibung="Impressum und Anbieterkennzeichnung dieser Seite nach § 5 DDG." pfad="/impressum" md="/impressum.md">
   <article class="page"><div class="wrap prose">
     <h1>Impressum</h1>
     <p><strong>Angaben gemäß § 5 DDG</strong><br />{r.impressumName}<br />{r.impressumAnschrift}<br />{r.impressumOrt}</p>

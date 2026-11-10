@@ -15,6 +15,7 @@ Prüfe:
 4. Strukturierte Daten: Article, BreadcrumbList, ItemList vorhanden und gültig; **keine** Review-/Rating-Daten.
 5. Technik: canonical, `lang="de"`, robots (`/go/` gesperrt), sitemap/robots-Hinweis, Schriften selbst gehostet, keine Fremd-Skripte, sinnvolle Bildalternativtexte falls Bilder, Mobil-Viewport.
 6. Inhaltliche Substanz: Bringt die Seite Mehrwert gegenüber den Hersteller-/Shopseiten (Einordnung, Nachteile, Entscheidungshilfe)? Dünne oder austauschbare Passagen markieren.
+7. Agent-Lesbarkeit: `llms.txt`, Markdown-Fassung jeder Seite und `produkte.json` im Build vorhanden, vollständig und deckungsgleich mit dem HTML; `<link rel="alternate">` auf Markdown und JSON; Crawler nicht ausgesperrt (nur `/go/`, `/keystatic/`, `/api/`); Werbelinks in allen Fassungen gekennzeichnet.
 Keine Zahlen zu Suchvolumen oder Rankings erfinden.
 
 Ausgabe: Befundliste (Blocker/Wichtig/Hinweis) mit Datei/Stelle, Begründung, konkretem Vorschlag, plus drei Chancen mit dem größten Hebel.

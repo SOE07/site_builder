@@ -47,6 +47,21 @@ liegen ausschließlich in `.claude/` dieses Repos. Geheimnisse werden nie commit
   an den Betreiber und sichtbarem Hinweis auf der Seite bearbeitet.
 - Strukturierte Daten ohne Review-Sterne. Selbst gehostete Schriften, kein Tracking.
 
+## Agent-First (Pflicht für jede Seite)
+- KI-Agents sollen alles lesen können. Jede Seite liefert deshalb neben dem HTML: `/llms.txt`,
+  eine Markdown-Fassung jeder Seite (`/index.md`, `/ratgeber/<slug>.md`, `/ueber-uns.md`,
+  `/werbehinweis.md`, `/impressum.md`, `/datenschutz.md`) und `/produkte.json` mit allen Produkten,
+  Angaben, Quell-URLs, Prüfdaten, Widersprüchen und Vor- und Nachteilen. Die Dateien entstehen
+  aus denselben Inhalten (`src/lib/agent.ts`); sie werden nie von Hand gepflegt und nie entfernt.
+- Für Agents gelten dieselben Regeln wie für Menschen: Werbehinweis am Anfang jeder Markdown-Datei,
+  jeder `/go/`-Link mit „Werbelink“ im Linktext und `werbung: true` im JSON, keine Bewertungen,
+  keine Behauptung eigener Tests. `npm run check` prüft das im gebauten Ergebnis.
+- Crawler (auch KI-Crawler) werden nicht ausgesperrt; gesperrt sind nur `/go/`, `/keystatic/`, `/api/`.
+- Das Repo ist ebenfalls agent-first: alles liegt als Text, Markdown oder JSON vor, `AGENTS.md`
+  gibt die Orientierung. Neue Inhalte gehören in Dateien, nicht nur in Oberflächen.
+- Änderungen an `vorlage/` erreichen bestehende Seiten mit `node scripts/vorlage-sync.mjs <name>`
+  (Inhalte, Theme und Konfiguration der Seite bleiben unberührt).
+
 ## Arbeitsweise
 - Jede Aufgabe läuft auf einem eigenen Branch (`feature/…`, `seite/<name>/…`). Am Ende steht ein
   Pull Request gegen `main` mit kurzer Zusammenfassung. Nie direkt auf `main` arbeiten.
@@ -66,6 +81,7 @@ liegen ausschließlich in `.claude/` dieses Repos. Geheimnisse werden nie commit
 - `npm run check` (Daten, Phrasen, Build, interne Links), `npm run check:release` (zusätzlich
   Platzhalter und Prüfdaten, strenger)
 - Neue Seite: `node scripts/neue-seite.mjs <name> "<Anzeigename>"` (macht der Skill `seite-anlegen`)
+- Vorlage in bestehende Seite übernehmen: `node scripts/vorlage-sync.mjs <name>`
 
 ## Struktur
 `.claude/` Skills, Agents, Hooks, Settings · `vorlage/` Astro-Keystatic-Starter · `seiten/` fertige

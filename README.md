@@ -52,6 +52,15 @@ Jede Seite ist ein eigenes Projekt. Neues Projekt aus diesem GitHub-Repo anlegen
 
 Die Inhaltsseiten bleiben statisch; nur `/keystatic` und `/api/keystatic` laufen serverseitig. In `seiten/<name>/seite.config.json` müssen `domain` und `github` stimmen (Pfad `seiten/<name>` steht schon drin). Vor dem Livegang: `npm run check:release` grün, Impressum und Datenschutz ausgefüllt, Partnerlinks eingetragen.
 
+## Agent-First
+Jede Seite ist auch für KI-Agents gebaut: `/llms.txt`, eine Markdown-Fassung jeder Seite (`/index.md`, `/ratgeber/<slug>.md`, …) und `/produkte.json` mit allen Produktdaten samt Quelle, Prüfdatum und gekennzeichneten Affiliate-Links. Das entsteht automatisch beim Build aus den Inhalten. `npm run check` prüft, dass Werbekennzeichnung und Quellen auch dort stimmen. Das Repo selbst beschreibt `AGENTS.md` für Agents.
+
+Änderungen an der Vorlage in eine bestehende Seite übernehmen:
+```bash
+node scripts/vorlage-sync.mjs <name>
+```
+Das kopiert nur Code (Seiten, Komponenten, Prüfskripte). Inhalte, Theme, Konfiguration und Schriftpakete der Seite bleiben unverändert.
+
 ## Hooks und Prüfungen
 - Nach jeder Änderung an Inhaltsdateien prüft ein Hook auf verbotene Phrasen („im Test“, „getestet“, „Testsieger“, „wir haben gespielt“, „unser Test“) und Affiliate-Links ohne `rel="sponsored nofollow noopener"`.
 - Vor jedem `git commit` von Claude baut ein Hook die geänderten Seiten und führt den Link-Check aus.
